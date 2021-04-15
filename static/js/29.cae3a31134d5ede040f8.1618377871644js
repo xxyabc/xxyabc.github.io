@@ -1,0 +1,1090 @@
+webpackJsonp([29],{
+
+/***/ "Htiu":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "xPbc":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+// EXTERNAL MODULE: ./src/lib/utils.js
+var utils = __webpack_require__("n95b");
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/projectManagement/groupManagement.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ var groupManagement = ({
+  name: "groupManagement",
+  data: function data() {
+    return {
+      rootAdminInfo: "", //登录账号信息
+      corId: "", //集团id
+      level: "0", //用户角色
+      levelName: "", //权限名称
+      role: "",
+      params: {}, //区域更新传递参数
+      keyWord: "", //搜索框 关键字
+      tableData: [], //表格数据
+      loading: true, //loading 显示
+      multipleSelection: [], // 批量删除选择
+      judgePage: 0, //搜索状态查询状态
+      DataDictionaryCurrentPage: 1, //来访记录的当前页数
+      DataDictionarytotalAllPage: 0, //来访记录数据一共多少条 总计表格条数
+      DataDictionaryPageSize: 1, //来访记录每页展示条树 默认十条
+      dialogFormdTadaDictionary: false, //更新访客信息是否显示
+      DataDictionaryAllInfoShow: "", // 存储修改用户信息
+      dialogAddDataDictionaryVisible: false, //新增用户界面
+      dataDictionaryForm: {
+        //数据字典表单新增表单验证
+        name: "", //区域名称
+        type: 1
+      },
+      dataDictionaryFormrules: {
+        name: [{ required: true, message: "请输入用户名", trigger: "blur" }, {
+          min: 1,
+          max: 20,
+          message: "用户名字符在 1 到 15 个字符",
+          trigger: "blur"
+        }],
+        type: [{ required: true, message: "请选择状态", trigger: "blur" }]
+      },
+      updateDataDictionaryInfo: {
+        name: "" //区域名称
+      }, //更新数据字典
+
+      updDataDictionaryRules: {
+        realName: [{ required: true, message: "用户真实姓名不能为空", trigger: "blur" }, {
+          min: 1,
+          max: 100,
+          message: "姓名字符在 1 到 20 个字符",
+          trigger: "blur"
+        }],
+        passWord: [{ required: true, message: "用户密码不能为空", trigger: "blur" }, {
+          min: 1,
+          max: 100,
+          message: "密码字符在 1 到 100 个字符",
+          trigger: "blur"
+        }]
+      }, //更新数据字典验证
+      colCor: "", //集团表头文字
+      colArea: "", //大区表头文字
+      colCity: "", //城市表头文字
+      choose: 0, //选择的项目，0-项目流转；1-城市流转；2-项目合并；3-大区合并
+      showTable: true, //用于重新渲染表格
+      anchangLstart: false, //是否开始了项目流转
+      cityLstart: false, //项目流转第二步/城市流转开始/城市合并
+      areaLstart: false, //城市流转第二步/大区合并
+      chooseAnchang: [], //选择的案场
+      chooseCity: [], //选择的城市
+      chooseArea: [], //选择的大区
+      showCityH: false, //合并城市弹窗
+      showAreaH: false, //合并大区弹窗
+      newCityName: "", //新城市名字
+      newAreaName: "", //新大区名字
+      //表格合并相关字段
+      corArr: [],
+      corPos: 0,
+      areaArr: [],
+      areaPos: 0,
+      cityArr: [],
+      cityPos: 0,
+      corTan: false, //内部管理员选择集团的弹窗
+      chooseCor: "", //内部管理员选择的集团id
+      cors: [] //所有集团
+    };
+  },
+
+  methods: {
+    /******************************* 查询 *****************************/
+    //查询
+    doSearch: function doSearch() {
+      var _this2 = this;
+
+      this.$request.searchAnchang({
+        name: this.keyWord,
+        admin: this.rootAdminInfo
+      }).then(function (response) {
+        var res = response.data;
+        console.log(res);
+        if (res.code == "1000") {
+          _this2.loading = false;
+          var anchangsTree = [];
+          _this2.cors = res.data.treeOrgs;
+          for (var c = 0; c < res.data.treeOrgs.length; c++) {
+            var corId = res.data.treeOrgs[c].id;
+            var corName = res.data.treeOrgs[c].name;
+            var areas = res.data.treeOrgs[c].districts;
+            if (areas.length != 0) {
+              for (var i = 0; i < areas.length; i++) {
+                var citys = areas[i].cities;
+                if (citys.length != 0) {
+                  for (var j = 0; j < citys.length; j++) {
+                    var anchangs = citys[j].anchangs;
+                    if (anchangs.length != 0) {
+                      for (var p = 0; p < anchangs.length; p++) {
+                        var anchang = {};
+                        anchang.corId = corId;
+                        anchang.corName = corName;
+                        anchang.createTime = anchangs[p].createTime;
+                        anchang.id = anchangs[p].id;
+                        anchang.imageName = anchangs[p].imageName;
+                        anchang.name = anchangs[p].name;
+                        anchang.cityId = citys[j].id;
+                        anchang.cityName = citys[j].name;
+                        anchang.areaId = areas[i].id;
+                        anchang.areaName = areas[i].name;
+                        anchangsTree.push(anchang);
+                      }
+                    } else {
+                      //该城市无案场
+                      var _anchang = {};
+                      _anchang.corId = corId;
+                      _anchang.corName = corName;
+                      _anchang.createTime = "-";
+                      _anchang.id = "-";
+                      _anchang.imageName = "-";
+                      _anchang.name = "-";
+                      _anchang.cityId = citys[j].id;
+                      _anchang.cityName = citys[j].name;
+                      _anchang.areaId = areas[i].id;
+                      _anchang.areaName = areas[i].name;
+                      anchangsTree.push(_anchang);
+                    }
+                  }
+                } else {
+                  //该大区无城市
+                  var _anchang2 = {};
+                  _anchang2.corId = corId;
+                  _anchang2.corName = corName;
+                  _anchang2.createTime = "-";
+                  _anchang2.id = "-";
+                  _anchang2.imageName = "-";
+                  _anchang2.name = "-";
+                  _anchang2.cityId = areas[i].id;
+                  _anchang2.cityName = "-";
+                  _anchang2.areaId = areas[i].id;
+                  _anchang2.areaName = areas[i].name;
+                  anchangsTree.push(_anchang2);
+                }
+              }
+            } else {
+              //该集团无大区
+              var _anchang3 = {};
+              _anchang3.corId = corId;
+              _anchang3.corName = corName;
+              _anchang3.createTime = "-";
+              _anchang3.id = "-";
+              _anchang3.imageName = "-";
+              _anchang3.name = "-";
+              _anchang3.cityId = corId;
+              _anchang3.cityName = "-";
+              _anchang3.areaId = corId;
+              _anchang3.areaName = "-";
+              anchangsTree.push(_anchang3);
+            }
+          }
+          _this2.tableData = anchangsTree;
+          _this2.dealData(anchangsTree);
+        } else {
+          _this2.loading = false;
+          _this2.$message({
+            type: "error",
+            message: res.msg,
+            duration: 1000
+          });
+        }
+      }).catch(function (err) {
+        _this2.$message({
+          type: "error",
+          message: "请求超时，请稍后重试!",
+          duration: 1000
+        });
+        console.log("err=", err);
+      });
+    },
+
+    //条件查询字段,根据用户ID来查询
+    fuzzySelectField: function fuzzySelectField() {
+      if (this.keyWord == "") {
+        this.$message.error("关键字为必填字段,不能为空");
+      } else {
+        this.loading = true; //表格加载动画
+        this.doSearch();
+      }
+    },
+
+
+    /******************************* 删除 *****************************/
+    //删除数据字典记录
+    handleDelete: function handleDelete(index, info) {
+      var _this3 = this;
+
+      this.$confirm("删除案场会删除所有历史记录，原始数据和访客信息，确定删除吗？", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      }).then(function () {
+        _this3.loading = true; //表格加载动画
+        var data = {
+          id: info.id
+        };
+        _this3.$request.delAnchang(data).then(function (res) {
+          if (res.status == 200 && res.data.code == 1000) {
+            _this3.$message({
+              type: "success",
+              message: "案场删除成功！",
+              duration: 1000
+            });
+            _this3.loading = false; //表格加载动画
+            _this3.doSearch();
+          } else {
+            _this3.$message({
+              type: "error",
+              message: res.data.msg,
+              duration: 1000
+            });
+          }
+        }).catch(function (error) {
+          console.log("error=", error);
+          _this3.$message({
+            type: "error",
+            message: "请求超时，请稍后重试！",
+            duration: 1000
+          });
+        });
+      }).catch(function () {});
+    },
+
+
+    /******************************* 表格合并处理 ****************************/
+    //表格合并
+    objectSpanMethod: function objectSpanMethod(_ref) {
+      var row = _ref.row,
+          column = _ref.column,
+          rowIndex = _ref.rowIndex,
+          columnIndex = _ref.columnIndex;
+
+      if (columnIndex === 0) {
+        var row1 = this.corArr[rowIndex];
+        var col1 = row1 > 0 ? 1 : 0;
+        return {
+          rowspan: row1,
+          colspan: col1
+        };
+      } else if (columnIndex === 1) {
+        var _row = this.areaArr[rowIndex];
+        var _col = _row > 0 ? 1 : 0;
+        return {
+          rowspan: _row,
+          colspan: _col
+        };
+      } else if (columnIndex === 2) {
+        var _row2 = this.cityArr[rowIndex];
+        var _col2 = _row2 > 0 ? 1 : 0;
+        return {
+          rowspan: _row2,
+          colspan: _col2
+        };
+      }
+    },
+
+    //处理表格数据用于合并
+    dealData: function dealData(data) {
+      var _this = this;
+      this.corArr = [];
+      this.corPos = 0;
+      this.areaArr = [];
+      this.areaPos = 0;
+      this.cityArr = [];
+      this.cityPos = 0;
+      for (var i = 0; i < data.length; i++) {
+        //判断是否是第一行
+        if (i === 0) {
+          //导入第一行数据
+          _this.corArr.push(1);
+          _this.corPos = 0;
+          _this.areaArr.push(1);
+          _this.areaPos = 0;
+          _this.cityArr.push(1);
+          _this.cityPos = 0;
+        } else {
+          //不是第一行时，就根据标识去存储
+          if (data[i].corId === data[i - 1].corId) {
+            // 查找到下一行的数据等于上一行的数据时每次要把之前存储的数据+1
+            _this.corArr[_this.corPos] += 1;
+            _this.corArr.push(0);
+          } else {
+            // 没有相同的数据时候，要记住当前的index
+            _this.corArr.push(1);
+            _this.corPos = i;
+          }
+          if (data[i].areaId === data[i - 1].areaId) {
+            // 查找到下一行的数据等于上一行的数据时每次要把之前存储的数据+1
+            _this.areaArr[_this.areaPos] += 1;
+            _this.areaArr.push(0);
+          } else {
+            // 没有相同的数据时候，要记住当前的index
+            _this.areaArr.push(1);
+            _this.areaPos = i;
+          }
+          if (data[i].cityId === data[i - 1].cityId) {
+            // 查找到下一行的数据等于上一行的数据时每次要把之前存储的数据+1
+            _this.cityArr[_this.cityPos] += 1;
+            _this.cityArr.push(0);
+          } else {
+            // 没有相同的数据时候，要记住当前的index
+            _this.cityArr.push(1);
+            _this.cityPos = i;
+          }
+        }
+      }
+    },
+
+
+    /******************************* 合并流转 ****************************/
+    //点击新增
+    configAnchangs: function configAnchangs() {
+      if (this.level == -1) {
+        //内部管理员是多集团
+        this.corTan = true;
+      } else {
+        this.$router.push({
+          name: "configAnchangs",
+          params: { corId: this.corId }
+        });
+      }
+    },
+
+    //内部管理员选案场
+    doneCor: function doneCor() {
+      this.corTan = false;
+      this.corId = this.chooseCor;
+      this.$router.push({
+        name: "configAnchangs",
+        params: { corId: this.corId }
+      });
+    },
+
+    //重置
+    reset: function reset() {
+      this.loading = true;
+      this.anchangLstart = false;
+      this.cityLstart = false;
+      this.areaLstart = false;
+      this.keyWord = "";
+      this.reloadTable();
+      this.doSearch();
+    },
+
+    //重载表格
+    reloadTable: function reloadTable() {
+      var _this4 = this;
+
+      this.showTable = false;
+      this.$nextTick(function () {
+        _this4.showTable = true;
+      });
+    },
+
+
+    // 表头插入导入按钮
+    renderAnchangHeader: function renderAnchangHeader() {
+      var _this5 = this;
+
+      var h = this.$createElement;
+
+      return h("div", [h(
+        "span",
+        { style: "color:red" },
+        ["\u8BF7\u9009\u62E9\u8981\u6D41\u8F6C\u7684\u9879\u76EE"]
+      ), h(
+        "el-button",
+        {
+          attrs: { size: "mini", type: "primary" },
+          on: {
+            "click": function click() {
+              return _this5.goCity();
+            }
+          }
+        },
+        ["\u786E\u5B9A"]
+      )]);
+    },
+    renderCityHeader: function renderCityHeader() {
+      var _this6 = this;
+
+      var h = this.$createElement;
+
+      console.log(this.choose);
+      if (this.choose == 0) {
+        return h("div", [h(
+          "span",
+          { style: "color:red" },
+          ["\u8BF7\u9009\u62E9\u8981\u6D41\u5165\u7684\u57CE\u5E02"]
+        ), h(
+          "el-button",
+          {
+            attrs: {
+              size: "mini",
+              type: "primary"
+            },
+            on: {
+              "click": function click() {
+                return _this6.doneAnchangL();
+              }
+            }
+          },
+          ["\u786E\u5B9A"]
+        )]);
+      }
+      if (this.choose == 1) {
+        return h("div", [h(
+          "span",
+          { style: "color:red" },
+          ["\u8BF7\u9009\u62E9\u8981\u6D41\u8F6C\u7684\u57CE\u5E02"]
+        ), h(
+          "el-button",
+          {
+            attrs: {
+              size: "mini",
+              type: "primary"
+            },
+            on: {
+              "click": function click() {
+                return _this6.goArea();
+              }
+            }
+          },
+          ["\u786E\u5B9A"]
+        )]);
+      }
+      if (this.choose == 2) {
+        return h("div", [h(
+          "span",
+          { style: "color:red" },
+          ["\u8BF7\u9009\u62E9\u8981\u5408\u5E76\u7684\u57CE\u5E02"]
+        ), h(
+          "el-button",
+          {
+            attrs: {
+              size: "mini",
+              type: "primary"
+            },
+            on: {
+              "click": function click() {
+                return _this6.heCity();
+              }
+            }
+          },
+          ["\u786E\u5B9A"]
+        )]);
+      }
+    },
+    renderAreaHeader: function renderAreaHeader() {
+      var _this7 = this;
+
+      var h = this.$createElement;
+
+      if (this.choose == 1) {
+        return h("div", [h(
+          "span",
+          { style: "color:red" },
+          ["\u8981\u6D41\u5165\u7684\u5927\u533A"]
+        ), h(
+          "el-button",
+          {
+            attrs: {
+              size: "mini",
+              type: "primary"
+            },
+            on: {
+              "click": function click() {
+                return _this7.doneCityL();
+              }
+            }
+          },
+          ["\u786E\u5B9A"]
+        )]);
+      }
+      if (this.choose == 3) {
+        return h("div", [h(
+          "span",
+          { style: "color:red" },
+          ["\u8BF7\u9009\u62E9\u8981\u5408\u5E76\u7684\u5927\u533A"]
+        ), h(
+          "el-button",
+          {
+            attrs: {
+              size: "mini",
+              type: "primary"
+            },
+            on: {
+              "click": function click() {
+                return _this7.heArea();
+              }
+            }
+          },
+          ["\u786E\u5B9A"]
+        )]);
+      }
+    },
+    anchangL: function anchangL() {
+      this.choose = 0;
+      this.chooseAnchang = [];
+      this.chooseCity = [];
+      this.chooseArea = [];
+      console.log("项目流转");
+      this.$refs.popover.doClose();
+      this.anchangLstart = true;
+      this.cityLstart = false;
+      this.areaLstart = false;
+      this.reloadTable();
+    },
+    goCity: function goCity() {
+      if (this.chooseAnchang.length == 0) {
+        this.$message({
+          type: "warning",
+          message: "请选择要流转的项目！",
+          duration: 1000
+        });
+        return;
+      }
+      console.log(this.chooseAnchang);
+      this.cityLstart = true;
+      this.chooseCity = [];
+      this.reloadTable();
+    },
+    doneAnchangL: function doneAnchangL() {
+      var _this8 = this;
+
+      console.log(this.chooseCity);
+      if (this.chooseCity.length !== 1) {
+        this.$message({
+          type: "warning",
+          message: "请选择一个流入城市！",
+          duration: 1000
+        });
+        return;
+      }
+      //处理案场list
+      var dealAnchang = [];
+      for (var i = 0; i < this.chooseAnchang.length; i++) {
+        var _corp = {},
+            _area = {},
+            _city = {},
+            anchang = {};
+        _corp.id = this.chooseAnchang[i].corId;
+        _area.id = this.chooseAnchang[i].areaId;
+        _area.corp = _corp;
+        _city.id = this.chooseAnchang[i].cityId;
+        _city.district = _area;
+        anchang.id = this.chooseAnchang[i].id;
+        anchang.city = _city;
+        dealAnchang.push(anchang);
+      }
+      //处理城市对象
+      var corp = {},
+          area = {},
+          city = {};
+      corp.id = this.chooseCity[0].corId;
+      area.id = this.chooseCity[0].areaId;
+      area.corp = corp;
+      city.id = this.chooseCity[0].cityId;
+      city.district = area;
+      //！！！！！！！！！！！！！！！！！！项目流转的接口，成功后重新加载整个页面
+      this.$request.moveAnchang({
+        toCity: city,
+        anchangs: dealAnchang
+      }).then(function (res) {
+        if (res.data.code == "1000") {
+          _this8.$message({
+            type: "success",
+            message: "项目流转成功！",
+            duration: 1000
+          });
+          _this8.reset();
+        } else {
+          _this8.$message({
+            type: "error",
+            message: res.data.msg,
+            duration: 1000
+          });
+        }
+      }).catch(function (err) {
+        _this8.$message({
+          type: "error",
+          message: "请求超时，请稍后重试!",
+          duration: 1000
+        });
+        console.log("err=", err);
+      });
+    },
+    cityL: function cityL() {
+      this.choose = 1;
+      this.chooseAnchang = [];
+      this.chooseCity = [];
+      this.chooseArea = [];
+      console.log("城市流转");
+      this.$refs.popover.doClose();
+      this.anchangLstart = false;
+      this.cityLstart = true;
+      this.areaLstart = false;
+      this.reloadTable();
+    },
+    goArea: function goArea() {
+      if (this.chooseCity.length == 0) {
+        this.$message({
+          type: "warning",
+          message: "请选择要流转的城市！",
+          duration: 1000
+        });
+        return;
+      }
+      console.log(this.chooseCity);
+      this.areaLstart = true;
+      this.chooseArea = [];
+      this.reloadTable();
+    },
+    doneCityL: function doneCityL() {
+      var _this9 = this;
+
+      console.log(this.chooseArea);
+      if (this.chooseArea.length !== 1) {
+        this.$message({
+          type: "warning",
+          message: "请选择一个流入大区！",
+          duration: 1000
+        });
+        return;
+      }
+      //处理城市list
+      var dealCity = [];
+      for (var i = 0; i < this.chooseCity.length; i++) {
+        var _corp2 = {},
+            _area2 = {},
+            city = {};
+        _corp2.id = this.chooseCity[i].corId;
+        _area2.id = this.chooseCity[i].areaId;
+        _area2.corp = _corp2;
+        city.id = this.chooseCity[i].cityId;
+        city.district = _area2;
+        dealCity.push(city);
+      }
+      //处理大区对象
+      var corp = {},
+          area = {};
+      corp.id = this.chooseArea[0].corId;
+      area.id = this.chooseArea[0].areaId;
+      area.corp = corp;
+      //！！！！！！！！！！！！！！！！！！城市流转的接口，成功后重新加载整个页面
+      this.$request.moveCity({
+        toDistrict: area,
+        cities: dealCity
+      }).then(function (res) {
+        if (res.data.code == "1000") {
+          _this9.$message({
+            type: "success",
+            message: "城市流转成功！",
+            duration: 1000
+          });
+          _this9.reset();
+        } else {
+          _this9.$message({
+            type: "error",
+            message: res.data.msg,
+            duration: 1000
+          });
+        }
+      }).catch(function (err) {
+        _this9.$message({
+          type: "error",
+          message: "请求超时，请稍后重试!",
+          duration: 1000
+        });
+        console.log("err=", err);
+      });
+    },
+    cityH: function cityH() {
+      this.choose = 2;
+      this.chooseAnchang = [];
+      this.chooseCity = [];
+      this.chooseArea = [];
+      console.log("项目合并");
+      this.$refs.popover.doClose();
+      this.anchangLstart = false;
+      this.cityLstart = true;
+      this.areaLstart = false;
+      this.reloadTable();
+    },
+    heCity: function heCity() {
+      this.newCityName = "";
+      if (this.chooseCity.length < 2) {
+        this.$message({
+          type: "warning",
+          message: "请至少选择2个城市！",
+          duration: 1000
+        });
+        return;
+      }
+      for (var i = 0; i < this.chooseCity.length - 1; i++) {
+        if (this.chooseCity[i].areaId !== this.chooseCity[i + 1].areaId) {
+          this.$message({
+            type: "warning",
+            message: "只能合并在同一大区的城市！",
+            duration: 1000
+          });
+          return;
+        }
+      }
+      this.showCityH = true;
+    },
+    doneCityH: function doneCityH() {
+      var _this10 = this;
+
+      if (!this.newCityName) {
+        this.$message({
+          type: "warning",
+          message: "请输入合并后城市名称！",
+          duration: 1000
+        });
+        return;
+      }
+      //处理城市list
+      var dealCity = [];
+      for (var i = 0; i < this.chooseCity.length; i++) {
+        var corp = {},
+            area = {},
+            city = {};
+        corp.id = this.chooseCity[i].corId;
+        area.id = this.chooseCity[i].areaId;
+        area.corp = corp;
+        city.id = this.chooseCity[i].cityId;
+        city.district = area;
+        dealCity.push(city);
+      }
+      //！！！！！！！！！！！！！！！！！！城市合并的接口，成功后重新加载整个页面
+      this.$request.mergeCities({
+        cities: dealCity,
+        newCityName: this.newCityName
+      }).then(function (res) {
+        if (res.data.code == "1000") {
+          _this10.$message({
+            type: "success",
+            message: "城市合并成功！",
+            duration: 1000
+          });
+          _this10.showCityH = false;
+          _this10.reset();
+        } else {
+          _this10.$message({
+            type: "error",
+            message: res.data.msg,
+            duration: 1000
+          });
+          _this10.showCityH = false;
+        }
+      }).catch(function (err) {
+        _this10.$message({
+          type: "error",
+          message: "请求超时，请稍后重试!",
+          duration: 1000
+        });
+        console.log("err=", err);
+        _this10.showCityH = false;
+      });
+    },
+    areaH: function areaH() {
+      this.choose = 3;
+      this.chooseAnchang = [];
+      this.chooseCity = [];
+      this.chooseArea = [];
+      console.log("大区合并");
+      this.$refs.popover.doClose();
+      this.anchangLstart = false;
+      this.cityLstart = false;
+      this.areaLstart = true;
+      this.reloadTable();
+    },
+    heArea: function heArea() {
+      this.newAreaName = "";
+      if (this.chooseArea.length < 2) {
+        this.$message({
+          type: "warning",
+          message: "请至少选择2个大区！",
+          duration: 1000
+        });
+        return;
+      }
+      this.showAreaH = true;
+    },
+    doneAreaH: function doneAreaH() {
+      var _this11 = this;
+
+      if (!this.newAreaName) {
+        this.$message({
+          type: "warning",
+          message: "请输入合并后大区名称！",
+          duration: 1000
+        });
+        return;
+      }
+      //处理大区list
+      var dealArea = [];
+      for (var i = 0; i < this.chooseArea.length; i++) {
+        var corp = {},
+            area = {};
+        corp.id = this.chooseArea[i].corId;
+        area.id = this.chooseArea[i].areaId;
+        area.corp = corp;
+        dealArea.push(area);
+      }
+      //！！！！！！！！！！！！！！！！！！大区合并的接口，成功后重新加载整个页面
+      this.$request.mergeDistricts({
+        districts: dealArea,
+        newDistrictName: this.newAreaName
+      }).then(function (res) {
+        if (res.data.code == "1000") {
+          _this11.$message({
+            type: "success",
+            message: "大区合并成功！",
+            duration: 1000
+          });
+          _this11.showAreaH = false;
+          _this11.reset();
+        } else {
+          _this11.$message({
+            type: "error",
+            message: res.data.msg,
+            duration: 1000
+          });
+          _this11.showAreaH = false;
+        }
+      }).catch(function (err) {
+        _this11.$message({
+          type: "error",
+          message: "请求超时，请稍后重试!",
+          duration: 1000
+        });
+        console.log("err=", err);
+        _this11.showAreaH = false;
+      });
+    }
+  },
+
+  //页面进入之前进行渲染
+  created: function created() {
+    var rootAdminInfo = JSON.parse(Object(utils["a" /* Decrypt */])(window.sessionStorage.getItem("rootAdminInfo")));
+    this.rootAdminInfo = rootAdminInfo;
+    this.level = rootAdminInfo.level;
+    this.role = rootAdminInfo.role;
+    this.corId = rootAdminInfo.corId;
+
+    switch (this.level) {
+      case "-1":
+        this.levelName = "内部集团";
+        this.colCor = "层级";
+        this.colArea = "所辖大区";
+        this.colCity = "所辖城市";
+        break;
+      case "1":
+        this.levelName = "集团";
+        this.colCor = "层级";
+        this.colArea = "所辖大区";
+        this.colCity = "所辖城市";
+        break;
+      case "4":
+        this.levelName = "大区";
+        this.colCor = "归属集团";
+        this.colArea = "归属大区";
+        this.colCity = "所辖城市";
+        break;
+      case "2":
+        this.levelName = "城市";
+        this.colCor = "归属集团";
+        this.colArea = "归属大区";
+        this.colCity = "归属城市";
+        break;
+    }
+
+    this.DataDictionaryCurrentPage = 1;
+    this.DataDictionaryPageSize = 10;
+    this.doSearch();
+  }
+});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-34ee0d89","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/projectManagement/groupManagement.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dataDictionary"},[_c('div',{staticClass:"dataDictionary-title el-row"},[_c('span',{staticClass:"dataDictionary-title_liner"}),_vm._v(" "),_c('span',{staticClass:"dataDictionary-title_text"},[_vm._v(_vm._s(_vm.levelName)+"管理")]),_vm._v(" "),_c('span',{staticClass:"dataDictionary-direction"},[_vm._v(">")]),_vm._v(" "),_c('span',{staticClass:"dataDictionary-title_text"},[_vm._v("平台管理")])]),_vm._v(" "),_c('div',{staticClass:"add"},[_c('button',{staticClass:"el-button el-button--success el-button--small",attrs:{"type":"button"},on:{"click":_vm.configAnchangs}},[_c('i',{staticClass:"el-icon-setting"}),_vm._v(" "),_c('span',[_vm._v("新增/删除")])]),_vm._v(" "),_c('el-popover',{ref:"popover",attrs:{"width":"200","trigger":"click"}},[_c('el-row',{staticStyle:{"text-align":"center"}},[_c('el-col',{staticStyle:{"border-right":"solid 2px #ebeef5"},attrs:{"span":12}},[_c('b',[_vm._v("流转")]),_vm._v(" "),_c('p',{staticClass:"textButton",on:{"click":_vm.anchangL}},[_vm._v("项目流转")]),_vm._v(" "),(_vm.level == 1||_vm.level==-1)?_c('p',{staticClass:"textButton",on:{"click":_vm.cityL}},[_vm._v("城市流转")]):_vm._e()]),_vm._v(" "),_c('el-col',{attrs:{"span":12}},[_c('b',[_vm._v("合并")]),_vm._v(" "),_c('p',{staticClass:"textButton",on:{"click":_vm.cityH}},[_vm._v("城市合并")]),_vm._v(" "),(_vm.level == 1||_vm.level==-1)?_c('p',{staticClass:"textButton",on:{"click":_vm.areaH}},[_vm._v("大区合并")]):_vm._e()])],1),_vm._v(" "),(_vm.level==1||_vm.level==4||_vm.level==-1)?_c('el-button',{attrs:{"slot":"reference","type":"warning","size":"small","icon":"el-icon-refresh"},slot:"reference"},[_vm._v("流转/合并")]):_vm._e()],1)],1),_vm._v(" "),_c('ul',{staticClass:"dataDictionary-serch"},[_c('li',{staticClass:"operation"},[_c('el-button',{attrs:{"type":"success","size":"small"},on:{"click":_vm.fuzzySelectField}},[_vm._v("查询")]),_vm._v(" "),_c('el-button',{attrs:{"type":"warning","size":"small"},on:{"click":_vm.reset}},[_vm._v("重置")])],1),_vm._v(" "),_c('li',{staticClass:"keyword"},[_c('el-input',{attrs:{"placeholder":"案场名称"},model:{value:(_vm.keyWord),callback:function ($$v) {_vm.keyWord=$$v},expression:"keyWord"}})],1)]),_vm._v(" "),_c('div',{staticClass:"dataDictionaryForm"},[_c('el-row',[(_vm.showTable)?_c('el-table',{directives:[{name:"loading",rawName:"v-loading",value:(_vm.loading),expression:"loading"}],staticStyle:{"width":"100%"},attrs:{"data":_vm.tableData,"span-method":_vm.objectSpanMethod,"border":"","element-loading-text":"正在查询","element-loading-spinner":"el-icon-loading","element-loading-background":"rgba(0, 0, 0, 0.8)"}},[_c('el-table-column',{attrs:{"prop":"name","label":_vm.colCor,"width":"130"},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.corName || '暂无数据'))]}}],null,false,4040069082)}),_vm._v(" "),(!_vm.areaLstart)?_c('el-table-column',{attrs:{"prop":"name","label":_vm.colArea},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.areaName || '暂无数据'))]}}],null,false,3304836435)}):_vm._e(),_vm._v(" "),(_vm.areaLstart)?_c('el-table-column',{attrs:{"prop":"name","label":"所辖大区","render-header":_vm.renderAreaHeader},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.chooseArea),expression:"chooseArea"}],attrs:{"type":"checkbox"},domProps:{"value":row,"checked":Array.isArray(_vm.chooseArea)?_vm._i(_vm.chooseArea,row)>-1:(_vm.chooseArea)},on:{"change":function($event){var $$a=_vm.chooseArea,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=row,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.chooseArea=$$a.concat([$$v]))}else{$$i>-1&&(_vm.chooseArea=$$a.slice(0,$$i).concat($$a.slice($$i+1)))}}else{_vm.chooseArea=$$c}}}}),_vm._v(" "+_vm._s(row.areaName || '暂无数据')+"\n          ")]}}],null,false,619795147)}):_vm._e(),_vm._v(" "),(!_vm.cityLstart)?_c('el-table-column',{attrs:{"prop":"name","label":_vm.colCity},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.cityName || '暂无数据'))]}}],null,false,140691747)}):_vm._e(),_vm._v(" "),(_vm.cityLstart)?_c('el-table-column',{attrs:{"prop":"name","label":"所辖城市","render-header":_vm.renderCityHeader},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.chooseCity),expression:"chooseCity"}],attrs:{"type":"checkbox"},domProps:{"value":row,"checked":Array.isArray(_vm.chooseCity)?_vm._i(_vm.chooseCity,row)>-1:(_vm.chooseCity)},on:{"change":function($event){var $$a=_vm.chooseCity,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=row,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.chooseCity=$$a.concat([$$v]))}else{$$i>-1&&(_vm.chooseCity=$$a.slice(0,$$i).concat($$a.slice($$i+1)))}}else{_vm.chooseCity=$$c}}}}),_vm._v(" "+_vm._s(row.cityName || '暂无数据')+"\n          ")]}}],null,false,3816610891)}):_vm._e(),_vm._v(" "),(!_vm.anchangLstart)?_c('el-table-column',{attrs:{"prop":"name","label":"所辖项目"},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.name || '暂无数据'))]}}],null,false,662855812)}):_vm._e(),_vm._v(" "),(_vm.anchangLstart)?_c('el-table-column',{attrs:{"prop":"name","label":"请选择要流转的项目","render-header":_vm.renderAnchangHeader},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.chooseAnchang),expression:"chooseAnchang"}],attrs:{"type":"checkbox"},domProps:{"value":row,"checked":Array.isArray(_vm.chooseAnchang)?_vm._i(_vm.chooseAnchang,row)>-1:(_vm.chooseAnchang)},on:{"change":function($event){var $$a=_vm.chooseAnchang,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=row,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.chooseAnchang=$$a.concat([$$v]))}else{$$i>-1&&(_vm.chooseAnchang=$$a.slice(0,$$i).concat($$a.slice($$i+1)))}}else{_vm.chooseAnchang=$$c}}}}),_vm._v(" "+_vm._s(row.name || '暂无数据')+"\n          ")]}}],null,false,411019175)}):_vm._e(),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"createTime","label":"创建时间","show-overflow-tooltip":""},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.createTime || '暂无数据'))]}}],null,false,955117810)}),_vm._v(" "),(_vm.level == 1||_vm.level==-1)?_c('el-table-column',{attrs:{"prop":"operation","label":"操作"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [(scope.row.id=='-')?_c('p',[_vm._v("-")]):_c('el-button',{attrs:{"size":"mini","type":"danger"},on:{"click":function($event){return _vm.handleDelete(scope.$index, scope.row)}}},[_vm._v("删除")])]}}],null,false,1138091812)}):_vm._e()],1):_vm._e()],1)],1),_vm._v(" "),_c('el-dialog',{attrs:{"title":"合并城市名称","visible":_vm.showCityH,"width":"30%","close-on-click-modal":false},on:{"update:visible":function($event){_vm.showCityH=$event}}},[_c('el-input',{attrs:{"placeholder":"请输入合并后城市名称"},model:{value:(_vm.newCityName),callback:function ($$v) {_vm.newCityName=$$v},expression:"newCityName"}}),_vm._v(" "),_c('div',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{on:{"click":function($event){_vm.showCityH=false}}},[_vm._v("取 消")]),_vm._v(" "),_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.doneCityH}},[_vm._v("确 定")])],1)],1),_vm._v(" "),_c('el-dialog',{attrs:{"title":"合并大区名称","visible":_vm.showAreaH,"width":"30%","close-on-click-modal":false},on:{"update:visible":function($event){_vm.showAreaH=$event}}},[_c('el-input',{attrs:{"placeholder":"请输入合并后大区名称"},model:{value:(_vm.newAreaName),callback:function ($$v) {_vm.newAreaName=$$v},expression:"newAreaName"}}),_vm._v(" "),_c('div',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{on:{"click":function($event){_vm.showAreaH=false}}},[_vm._v("取 消")]),_vm._v(" "),_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.doneAreaH}},[_vm._v("确 定")])],1)],1),_vm._v(" "),_c('el-dialog',{attrs:{"title":"选择要管理的集团","visible":_vm.corTan,"width":"30%","close-on-click-modal":false},on:{"update:visible":function($event){_vm.corTan=$event}}},[_c('el-radio-group',{model:{value:(_vm.chooseCor),callback:function ($$v) {_vm.chooseCor=$$v},expression:"chooseCor"}},_vm._l((_vm.cors),function(item){return _c('el-radio',{key:item.id,staticStyle:{"padding":"3px"},attrs:{"label":item.id}},[_vm._v(_vm._s(item.name))])}),1),_vm._v(" "),_c('div',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{on:{"click":function($event){_vm.corTan=false}}},[_vm._v("取 消")]),_vm._v(" "),_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.doneCor}},[_vm._v("确 定")])],1)],1)],1)}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ var projectManagement_groupManagement = (esExports);
+// CONCATENATED MODULE: ./src/components/projectManagement/groupManagement.vue
+function injectStyle (ssrContext) {
+  __webpack_require__("Htiu")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-34ee0d89"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  groupManagement,
+  projectManagement_groupManagement,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ var components_projectManagement_groupManagement = __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ })
+
+});
