@@ -1,0 +1,447 @@
+webpackJsonp([19],{
+
+/***/ "hJbC":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "xWVV":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+// EXTERNAL MODULE: ./src/lib/utils.js
+var utils = __webpack_require__("n95b");
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/projectManagement/corpManagement.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ var corpManagement = ({
+  name: "corpManagement",
+  data: function data() {
+    return {
+      params: {}, //集团更新传递参数
+      tableData: [], //表格数据
+      loading: true, //loading 显示
+      dialogFormdTadaDictionary: false, //更新访客信息是否显示
+      DataDictionaryAllInfoShow: "", // 存储修改用户信息
+      dialogAddDataDictionaryVisible: false, //新增用户界面
+      dataDictionaryForm: {
+        //数据字典表单新增表单验证
+        name: "" //区域名称
+      },
+      dataDictionaryFormrules: {
+        name: [{ required: true, message: "请输入集团名称", trigger: "blur" }]
+      },
+      updateDataDictionaryInfo: {
+        name: ""
+      }, //更新数据字典
+      updDataDictionaryRules: {
+        name: [{ required: true, message: "请输入集团名称", trigger: "blur" }]
+      }, //更新数据字典验证
+
+      corId: "", //所选集团
+      configTan: false, //配置弹窗
+      radio: "0", //审批方式选择
+      reviewCycle: "" //审批周期
+    };
+  },
+
+  methods: {
+    //删除
+    handleDelete: function handleDelete(index, info) {
+      var _this = this;
+
+      this.$confirm("确认删除该集团", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      }).then(function () {
+        _this.loading = true; //表格加载动画
+        _this.$request.delCorp({ id: info.id }).then(function (response) {
+          var res = response.data;
+          if (res.code == "1000") {
+            _this.loading = false; //表格加载动画
+            _this.$message({
+              message: "删除成功",
+              type: "success",
+              duration: 1000
+            });
+            _this.getData();
+          } else {
+            _this.$message({
+              type: "error",
+              message: "删除失败，请稍后重试!",
+              duration: 1000
+            });
+          }
+        }).catch(function (err) {
+          _this.$message({
+            type: "error",
+            message: "请求超时，请稍后重试!",
+            duration: 1000
+          });
+        });
+      }).catch(function () {});
+    },
+
+
+    //关闭更新数据字典记录弹出框
+    hiddenEditFormData: function hiddenEditFormData() {
+      this.$refs["updateDataDictionaryInfo"].resetFields();
+      this.dialogFormdTadaDictionary = false;
+    },
+
+    //打开数据字典修改信息
+    handleEdit: function handleEdit(index, info) {
+      this.DataDictionaryAllInfoShow = info;
+      this.updateDataDictionaryInfo.name = info.name;
+      this.dialogFormdTadaDictionary = !this.dialogFormdTadaDictionary;
+    },
+
+    //更新数据字典的信息
+    updataFromRequire: function updataFromRequire(updateDataDictionaryInfo) {
+      var _this2 = this;
+
+      this.params = {
+        id: parseInt(this.DataDictionaryAllInfoShow.id),
+        name: this.updateDataDictionaryInfo.name
+      };
+      this.$refs[updateDataDictionaryInfo].validate(function (valid) {
+        if (valid) {
+          _this2.loading = true; //表格加载动画
+          _this2.$request.editCorp(_this2.params).then(function (res) {
+            if (res.data.code == "1000") {
+              _this2.loading = false; //表格加载动画
+              _this2.getData();
+              _this2.$message({
+                message: "更新成功",
+                type: "success",
+                duration: 1000
+              });
+              _this2.hiddenEditFormData();
+            } else {
+              _this2.loading = false;
+              _this2.$message({
+                message: res.data.msg,
+                type: "error",
+                duration: 1000
+              });
+              _this2.hiddenEditFormData();
+            }
+          }).catch(function (err) {
+            _this2.loading = false; //表格加载动画
+            _this2.hiddenEditFormData();
+            _this2.$message({
+              type: "error",
+              message: "请求超时，请稍后重试!",
+              duration: 1000
+            });
+            console.log("err=", err);
+          });
+        } else {
+          _this2.$message.error("请检查信息是否填写完毕");
+          return false;
+        }
+      });
+    },
+
+
+    //隐藏新增表单弹出框
+    handleDataDictionaryDiag: function handleDataDictionaryDiag() {
+      this.$refs["dataDictionaryForm"].resetFields();
+      this.dataDictionaryForm.dataSelectTypeName = [];
+      this.dialogAddDataDictionaryVisible = false;
+    },
+
+    //增加
+    dataDictionaryAddRequire: function dataDictionaryAddRequire(dataDictionaryForm) {
+      var _this3 = this;
+
+      this.$refs[dataDictionaryForm].validate(function (valid) {
+        if (valid) {
+          _this3.loading = true; //表格加载动画
+          _this3.$request.addCorp({
+            name: _this3.dataDictionaryForm.name
+          }).then(function (response) {
+            var res = response.data;
+            if (res.code == "1000") {
+              _this3.$message({
+                type: "success",
+                message: "添加成功",
+                duration: 1000
+              });
+              _this3.handleDataDictionaryDiag();
+              _this3.getData();
+            } else {
+              _this3.$message({
+                type: "error",
+                message: res.msg,
+                duration: 1000
+              });
+              _this3.handleDataDictionaryDiag();
+            }
+          }).catch(function (err) {
+            console.log("err=", err);
+            _this3.$message({
+              type: "error",
+              message: "请求超时，请稍后重试!",
+              duration: 1000
+            });
+            _this3.handleDataDictionaryDiag();
+          });
+        } else {
+          _this3.$message.error("请检查信息是否填写完毕");
+          return false;
+        }
+      });
+    },
+
+
+    //查询所有数据
+    getData: function getData() {
+      var _this4 = this;
+
+      this.$request.allCorp().then(function (response) {
+        var res = response.data;
+        if (res.code == "1000") {
+          _this4.loading = false;
+          _this4.tableData = res.data;
+        }
+      });
+    },
+
+
+    //审批配置
+    config: function config(index, row) {
+      var _this5 = this;
+
+      this.corId = row.id;
+      this.$request.getReviewConfig({
+        corpId: row.id
+      }).then(function (response) {
+        var res = response.data;
+        if (res.code == "1000") {
+          _this5.configTan = true;
+          if (!res.data.enableApply) {
+            //无需审批
+            _this5.radio = "0";
+            _this5.reviewCycle = '';
+          } else {
+            _this5.radio = '' + res.data.applyFlowType;
+            _this5.reviewCycle = res.data.applyExpiry;
+          }
+        }
+      });
+    },
+    configYes: function configYes() {
+      var _this6 = this;
+
+      var param = {};
+      if (this.radio == "0") {
+        param = {
+          corpId: this.corId,
+          enableApply: false
+        };
+      } else {
+        if (this.reviewCycle == "") {
+          this.$message({
+            type: "warning",
+            message: "审批周期不能为空!",
+            duration: 1000
+          });
+          return;
+        }
+        param = {
+          corpId: this.corId,
+          enableApply: true,
+          applyFlowType: parseInt(this.radio),
+          applyExpiry: parseInt(this.reviewCycle)
+        };
+      }
+      this.$request.saveReviewConfig(param).then(function (response) {
+        _this6.configTan = false;
+        var res = response.data;
+        if (res.code == "1000") {
+          _this6.$message({
+            type: "success",
+            message: "配置成功!",
+            duration: 1000
+          });
+        } else {
+          _this6.$message({
+            type: "error",
+            message: res.msg,
+            duration: 1000
+          });
+        }
+      }).catch(function (err) {
+        console.log(err);
+        _this6.$message({
+          type: "error",
+          message: "请求超时，请稍后重试!",
+          duration: 1000
+        });
+      });
+    },
+    checkCycle: function checkCycle() {
+      if (!/(^[1-9]\d*$)/.test(this.reviewCycle)) {
+        this.$message({
+          type: "warning",
+          message: "请输入正整数!",
+          duration: 1000
+        });
+      }
+    }
+  },
+  //页面进入之前进行渲染
+  created: function created() {
+    this.getData();
+  }
+});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-9535d700","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/projectManagement/corpManagement.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dataDictionary"},[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"add"},[_c('button',{staticClass:"el-button el-button--success el-button--small",attrs:{"type":"button"},on:{"click":function($event){_vm.dialogAddDataDictionaryVisible = true}}},[_c('i',{staticClass:"el-icon-plus"}),_vm._v(" "),_c('span',[_vm._v("新增")])])]),_vm._v(" "),_c('div',{staticClass:"dataDictionary-AdddForm"},[_c('el-dialog',{attrs:{"title":"新增集团","visible":_vm.dialogAddDataDictionaryVisible,"width":"30%","before-close":_vm.handleDataDictionaryDiag,"close-on-click-modal":false},on:{"update:visible":function($event){_vm.dialogAddDataDictionaryVisible=$event}}},[_c('div',{staticClass:"addFormInfo"},[_c('el-form',{ref:"dataDictionaryForm",staticClass:"demo-ruleForm",attrs:{"model":_vm.dataDictionaryForm,"rules":_vm.dataDictionaryFormrules,"label-width":"100px"}},[_c('el-form-item',{attrs:{"label":"集团名称","prop":"name"}},[_c('el-input',{model:{value:(_vm.dataDictionaryForm.name),callback:function ($$v) {_vm.$set(_vm.dataDictionaryForm, "name", $$v)},expression:"dataDictionaryForm.name"}})],1)],1)],1),_vm._v(" "),_c('span',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{on:{"click":_vm.handleDataDictionaryDiag}},[_vm._v("取 消")]),_vm._v(" "),_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){return _vm.dataDictionaryAddRequire('dataDictionaryForm')}}},[_vm._v("确 定")])],1)])],1),_vm._v(" "),_c('div',{staticClass:"dataDictionaryForm"},[_c('el-row',[_c('el-table',{directives:[{name:"loading",rawName:"v-loading",value:(_vm.loading),expression:"loading"}],staticStyle:{"width":"100%"},attrs:{"data":_vm.tableData,"border":"","element-loading-text":"正在搜索集团","element-loading-spinner":"el-icon-loading","element-loading-background":"rgba(0, 0, 0, 0.8)"}},[_c('el-table-column',{attrs:{"prop":"name","label":"集团名称"},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.name || '暂无数据'))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"createTime","label":"创建时间","show-overflow-tooltip":""},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.createTime || '暂无数据'))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"operation","label":"操作"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_c('el-button',{attrs:{"type":"primary","plain":"","size":"mini"},on:{"click":function($event){return _vm.config(scope.$index, scope.row)}}},[_vm._v("审批配置")]),_vm._v(" "),_c('el-button',{attrs:{"size":"mini"},on:{"click":function($event){return _vm.handleEdit(scope.$index, scope.row)}}},[_vm._v("编辑")]),_vm._v(" "),_c('el-button',{attrs:{"size":"mini","type":"danger"},on:{"click":function($event){return _vm.handleDelete(scope.$index, scope.row)}}},[_vm._v("删除")])]}}])})],1)],1)],1),_vm._v(" "),_c('el-dialog',{attrs:{"title":"修改集团信息","visible":_vm.dialogFormdTadaDictionary,"width":"30%","before-close":_vm.hiddenEditFormData,"close-on-click-modal":false},on:{"update:visible":function($event){_vm.dialogFormdTadaDictionary=$event}}},[_c('el-form',{ref:"updateDataDictionaryInfo",attrs:{"model":_vm.updateDataDictionaryInfo,"rules":_vm.updDataDictionaryRules}},[_c('el-form-item',{attrs:{"label":"集团名称","prop":"name"}},[_c('el-input',{model:{value:(_vm.updateDataDictionaryInfo.name),callback:function ($$v) {_vm.$set(_vm.updateDataDictionaryInfo, "name", $$v)},expression:"updateDataDictionaryInfo.name"}})],1)],1),_vm._v(" "),_c('div',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{on:{"click":_vm.hiddenEditFormData}},[_vm._v("取 消")]),_vm._v(" "),_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){return _vm.updataFromRequire('updateDataDictionaryInfo')}}},[_vm._v("确 定")])],1)],1),_vm._v(" "),_c('el-dialog',{attrs:{"title":"集团审批配置","visible":_vm.configTan,"width":"50%","close-on-click-modal":false},on:{"update:visible":function($event){_vm.configTan=$event}}},[_c('el-row',{staticStyle:{"padding":"20px"}},[_vm._v("\n      审批层级：\n      "),_c('el-radio',{attrs:{"label":"0"},model:{value:(_vm.radio),callback:function ($$v) {_vm.radio=$$v},expression:"radio"}},[_vm._v("无需审批")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"1"},model:{value:(_vm.radio),callback:function ($$v) {_vm.radio=$$v},expression:"radio"}},[_vm._v("一级")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"},model:{value:(_vm.radio),callback:function ($$v) {_vm.radio=$$v},expression:"radio"}},[_vm._v("二级")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"3"},model:{value:(_vm.radio),callback:function ($$v) {_vm.radio=$$v},expression:"radio"}},[_vm._v("三级")]),_vm._v(" "),_c('p',{directives:[{name:"show",rawName:"v-show",value:(_vm.radio!=='0'),expression:"radio!=='0'"}],staticStyle:{"padding-left":"12%"}},[_c('i',{staticClass:"el-icon-warning-outline"}),_vm._v("需城市管理员\n        "),_c('span',{directives:[{name:"show",rawName:"v-show",value:(_vm.radio == '2'||_vm.radio == '3'),expression:"radio == '2'||radio == '3'"}]},[_vm._v("、大区管理员")]),_vm._v(" "),_c('span',{directives:[{name:"show",rawName:"v-show",value:(_vm.radio == '3'),expression:"radio == '3'"}]},[_vm._v("、集团管理员")]),_vm._v("审批")])],1),_vm._v(" "),_c('el-row',{directives:[{name:"show",rawName:"v-show",value:(_vm.radio!=0),expression:"radio!=0"}],staticStyle:{"padding":"0 20px"}},[_vm._v("\n      审批周期：\n      "),_c('el-input',{staticStyle:{"width":"30%"},attrs:{"placeholder":"请输入正整数"},on:{"input":function($event){return _vm.checkCycle()}},model:{value:(_vm.reviewCycle),callback:function ($$v) {_vm.reviewCycle=$$v},expression:"reviewCycle"}},[_c('template',{slot:"append"},[_vm._v("天")])],2),_vm._v(" "),_c('p',{staticStyle:{"padding-left":"12%"}},[_c('i',{staticClass:"el-icon-warning-outline"}),_vm._v("若审批周期内未处理，过期自动通过\n      ")])],1),_vm._v(" "),_c('div',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{on:{"click":function($event){_vm.configTan=false}}},[_vm._v("取 消")]),_vm._v(" "),_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){return _vm.configYes()}}},[_vm._v("确 定")])],1)],1)],1)}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dataDictionary-title el-row"},[_c('span',{staticClass:"dataDictionary-title_liner"}),_vm._v(" "),_c('span',{staticClass:"dataDictionary-title_text"},[_vm._v("集团管理")])])}]
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ var projectManagement_corpManagement = (esExports);
+// CONCATENATED MODULE: ./src/components/projectManagement/corpManagement.vue
+function injectStyle (ssrContext) {
+  __webpack_require__("hJbC")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-9535d700"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  corpManagement,
+  projectManagement_corpManagement,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ var components_projectManagement_corpManagement = __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ })
+
+});

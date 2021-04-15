@@ -1,0 +1,236 @@
+webpackJsonp([31],{
+
+/***/ "9bzN":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "Vm03":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+// EXTERNAL MODULE: ./src/lib/utils.js
+var utils = __webpack_require__("n95b");
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/systemManagement/groupConfig.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ var groupConfig = ({
+  name: "groupConfig",
+  data: function data() {
+    return {
+      role: "", //角色
+      level: "", //权限
+      id: "", //集团id
+      formData: {
+        name: "", //集团名称
+        dataNodes: [{ ip: "" }], //数据节点
+        inNodes: [{ ip: "" }], //接入节点
+        modelNodes: [{ ip: "" }] //模型服务
+      }
+    };
+  },
+
+  methods: {
+    //添加数据节点
+    addDatanode: function addDatanode(i) {
+      if (this.formData.dataNodes[i].ip == "") {
+        this.$message({
+          type: "warning",
+          message: "请填写要添加的数据节点",
+          duration: 1000
+        });
+        return;
+      }
+      var obj = {};
+      obj.ip = this.formData.dataNodes[i].ip;
+      this.formData.dataNodes.pop();
+      this.formData.dataNodes.push(obj);
+      this.formData.dataNodes.push({ ip: "" });
+    },
+
+    //删除数据节点
+    delDatanode: function delDatanode(i) {
+      this.formData.dataNodes.splice(i, 1);
+    },
+
+    //添加接入节点
+    addInnode: function addInnode(i) {
+      if (this.formData.inNodes[i].ip == "") {
+        this.$message({
+          type: "warning",
+          message: "请填写要添加的接入节点",
+          duration: 1000
+        });
+        return;
+      }
+      var obj = {};
+      obj.ip = this.formData.inNodes[i].ip;
+      this.formData.inNodes.pop();
+      this.formData.inNodes.push(obj);
+      this.formData.inNodes.push({ ip: "" });
+    },
+
+    //删除接入节点
+    delInnode: function delInnode(i) {
+      this.formData.inNodes.splice(i, 1);
+    },
+
+    //添加模型服务
+    addModelnode: function addModelnode(i) {
+      if (this.formData.modelNodes[i].ip == "") {
+        this.$message({
+          type: "warning",
+          message: "请填写要添加的模型服务",
+          duration: 1000
+        });
+        return;
+      }
+      var obj = {};
+      obj.ip = this.formData.modelNodes[i].ip;
+      this.formData.modelNodes.pop();
+      this.formData.modelNodes.push(obj);
+      this.formData.modelNodes.push({ ip: "" });
+    },
+
+    //删除模型服务
+    delModelnode: function delModelnode(i) {
+      this.formData.modelNodes.splice(i, 1);
+    },
+
+    //确认
+    onSubmit: function onSubmit() {
+      if (this.formData.name == "") {
+        this.$message({
+          type: "error",
+          message: "集团名称不能为空",
+          duration: 1000
+        });
+        return;
+      }
+      //！！！！！！！！！！！！!!这里缺一个确认接口
+      this.$message({
+        type: "success",
+        message: "配置成功！",
+        duration: 1000
+      });
+    },
+
+    //清空
+    empty: function empty() {
+      this.formData.name = "";
+      this.formData.dataNodes = [{ ip: "" }];
+      this.formData.inNodes = [{ ip: "" }];
+      this.formData.modelNodes = [{ ip: "" }];
+    }
+  },
+  mounted: function mounted() {
+    var rootAdminInfo = JSON.parse(Object(utils["a" /* Decrypt */])(window.sessionStorage.getItem("rootAdminInfo")));
+    this.role = rootAdminInfo.role;
+    this.level = rootAdminInfo.level;
+
+    //！！！！！！！！！！！！这里缺一个读取接口
+  }
+});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-19e9da39","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/systemManagement/groupConfig.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dataDictionary"},[_vm._m(0),_vm._v(" "),_c('el-form',{staticClass:"add",attrs:{"label-position":_vm.left,"label-width":"80px","model":_vm.formData}},[_c('el-form-item',{attrs:{"label":"数据节点"}},[_c('div',{staticClass:"nodes"},_vm._l((_vm.formData.dataNodes),function(node,i){return _c('div',{key:i,staticClass:"node"},[_vm._v("\n                    节点"+_vm._s(i+1)+"\n                    "),_c('el-input',{staticClass:"ipinput",model:{value:(node.ip),callback:function ($$v) {_vm.$set(node, "ip", $$v)},expression:"node.ip"}}),_vm._v(" "),(i==_vm.formData.dataNodes.length-1)?_c('i',{staticClass:"el-icon-circle-plus-outline",on:{"click":function($event){return _vm.addDatanode(i)}}}):_c('i',{staticClass:"el-icon-circle-close",on:{"click":function($event){return _vm.delDatanode(i)}}}),_vm._v("\n                       \n                ")],1)}),0)]),_vm._v(" "),_c('el-form-item',{attrs:{"label":"接入节点"}},[_c('div',{staticClass:"nodes"},_vm._l((_vm.formData.inNodes),function(node,i){return _c('div',{key:i,staticClass:"node"},[_vm._v("\n                    节点"+_vm._s(i+1)+"\n                    "),_c('el-input',{staticClass:"ipinput",model:{value:(node.ip),callback:function ($$v) {_vm.$set(node, "ip", $$v)},expression:"node.ip"}}),_vm._v(" "),(i==_vm.formData.inNodes.length-1)?_c('i',{staticClass:"el-icon-circle-plus-outline",on:{"click":function($event){return _vm.addInnode(i)}}}):_c('i',{staticClass:"el-icon-circle-close",on:{"click":function($event){return _vm.delInnode(i)}}}),_vm._v("\n                       \n                ")],1)}),0)]),_vm._v(" "),_c('el-form-item',{attrs:{"label":"模型服务"}},[_c('div',{staticClass:"nodes"},_vm._l((_vm.formData.modelNodes),function(node,i){return _c('div',{key:i,staticClass:"node"},[_vm._v("\n                    模型"+_vm._s(i+1)+"\n                    "),_c('el-input',{staticClass:"ipinput",model:{value:(node.ip),callback:function ($$v) {_vm.$set(node, "ip", $$v)},expression:"node.ip"}}),_vm._v(" "),(i==_vm.formData.modelNodes.length-1)?_c('i',{staticClass:"el-icon-circle-plus-outline",on:{"click":function($event){return _vm.addModelnode(i)}}}):_c('i',{staticClass:"el-icon-circle-close",on:{"click":function($event){return _vm.delModelnode(i)}}}),_vm._v("\n                       \n                ")],1)}),0)]),_vm._v(" "),_c('el-form-item',{staticStyle:{"float":"right","margin-right":"100px"}},[_c('el-button',{on:{"click":_vm.empty}},[_vm._v("清空")]),_vm._v(" "),_c('el-button',{attrs:{"type":"success"},on:{"click":_vm.onSubmit}},[_vm._v("确认")])],1)],1)],1)}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dataDictionary-title el-row"},[_c('span',{staticClass:"dataDictionary-title_liner"}),_vm._v(" "),_c('span',{staticClass:"dataDictionary-title_text"},[_vm._v("系统管理")]),_vm._v(" "),_c('span',{staticClass:"dataDictionary-direction"},[_vm._v(">")]),_vm._v(" "),_c('span',{staticClass:"dataDictionary-title_text"},[_vm._v("服务配置")])])}]
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ var systemManagement_groupConfig = (esExports);
+// CONCATENATED MODULE: ./src/components/systemManagement/groupConfig.vue
+function injectStyle (ssrContext) {
+  __webpack_require__("9bzN")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-19e9da39"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  groupConfig,
+  systemManagement_groupConfig,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ var components_systemManagement_groupConfig = __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ })
+
+});

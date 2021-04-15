@@ -1,0 +1,226 @@
+webpackJsonp([20],{
+
+/***/ "OXGI":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/updateLog/updateLog.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var updateLog = ({
+  name: "updateLog",
+  data: function data() {
+    return {
+      dialogVisible: false,
+      dialogVisible02: false,
+
+      ruleForm: {
+        logName: '',
+        logContent: ''
+      },
+      rules: {
+        logName: [{ required: true, message: '请输入日志标题', trigger: 'blur' }],
+        logContent: [{ required: true, message: '请输入日志内容', trigger: 'blur' }]
+      },
+      // page
+      getDataTotalNum: 0,
+      getListData: {
+        pageIndex: 1,
+        pageSize: 10
+      },
+      currentPage: 1,
+
+      tableData: [{
+        title: "2021年1月1日 更新",
+        content: "1.新增控制台功能\n2.cccccccccc",
+        date: "2021-1-1 12:50:00"
+      }]
+    };
+  },
+  mounted: function mounted() {
+    this.tableData[0].content.replace(/\n/g, "<br/>");
+  },
+
+  methods: {
+    submitForm: function submitForm(formName) {
+      var _this = this;
+
+      this.$refs[formName].validate(function (valid) {
+        if (valid) {
+          console.log(_this.ruleForm);
+        } else {
+          _this.$message({
+            message: '请输入日志标题或请输入日志内容',
+            type: 'error'
+          });
+          return false;
+        }
+      });
+    },
+    upDateForm: function upDateForm(formName) {
+      var _this2 = this;
+
+      this.$refs[formName].validate(function (valid) {
+        if (valid) {
+          console.log(_this2.ruleForm);
+        } else {
+          _this2.$message({
+            message: '请输入日志标题或请输入日志内容',
+            type: 'error'
+          });
+          return false;
+        }
+      });
+    },
+    handleClick: function handleClick() {
+      this.ruleForm = {
+        logName: this.tableData[0].title,
+        logContent: this.tableData[0].content
+      };
+    },
+    deleteLog: function deleteLog() {}
+  }
+});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-8f902cac","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/updateLog/updateLog.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"main_page"},[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"pdfDownload"},[_c('el-button',[_c('i',{staticClass:"fa fa-file-pdf-o",staticStyle:{"color":"rgb(10, 126, 229)"},attrs:{"aria-hidden":"true"}}),_vm._v(" "),_c('span',{staticStyle:{"margin":"0 10px"}},[_vm._v("点击上传使用说明书")]),_vm._v(" "),_c('i',{staticClass:"fa fa-upload",staticStyle:{"color":"rgb(10, 126, 229)"},attrs:{"aria-hidden":"true"}})]),_vm._v(" "),_c('el-button',{on:{"click":function($event){_vm.dialogVisible = true}}},[_c('i',{staticClass:"fa fa-plus-square",staticStyle:{"color":"rgb(10, 126, 229)"},attrs:{"aria-hidden":"true"}}),_vm._v(" "),_c('span',{staticStyle:{"margin":"0 10px"}},[_vm._v("添加更新日志")])])],1),_vm._v(" "),_c('div',{staticClass:"pdfTable"},[_c('el-table',{staticStyle:{"width":"100%"},attrs:{"data":_vm.tableData,"border":""}},[_c('el-table-column',{attrs:{"fixed":"","prop":"title","label":"更新标题"}}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"content","label":"更新内容"}}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"date","label":"更新时间"}}),_vm._v(" "),_c('el-table-column',{attrs:{"fixed":"right","label":"操作","width":"150"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_c('el-button',{attrs:{"type":"primary","size":"small"},on:{"click":function($event){_vm.handleClick(scope.row),_vm.dialogVisible02 = true}}},[_vm._v("编辑")]),_vm._v(" "),_c('el-button',{attrs:{"type":"success","size":"small"},on:{"click":_vm.deleteLog}},[_vm._v("删除")])]}}])})],1)],1),_vm._v(" "),_c('div',{staticClass:"zhfk_detail_tablePage"},[_c('el-pagination',{attrs:{"current-page":_vm.currentPage,"page-size":_vm.getListData.pageSize,"pager-count":20,"background":"","layout":"total, prev, pager, next, jumper","total":_vm.getDataTotalNum},on:{"size-change":_vm.handleSizeChange,"current-change":_vm.handleCurrentChange,"update:currentPage":function($event){_vm.currentPage=$event},"update:current-page":function($event){_vm.currentPage=$event}}})],1),_vm._v(" "),_c('el-dialog',{attrs:{"title":"添加更新日志","visible":_vm.dialogVisible,"width":"700","close-on-click-modal":false},on:{"update:visible":function($event){_vm.dialogVisible=$event}}},[_c('div',{staticStyle:{"padding":"20px 10px"}},[_c('el-form',{ref:"ruleForm",staticClass:"demo-ruleForm",attrs:{"model":_vm.ruleForm,"rules":_vm.rules,"label-width":"80px","size":"small"}},[_c('el-form-item',{attrs:{"label":"更新标题","prop":"logName"}},[_c('el-input',{attrs:{"placeholder":"请输入日志标题"},model:{value:(_vm.ruleForm.logName),callback:function ($$v) {_vm.$set(_vm.ruleForm, "logName", $$v)},expression:"ruleForm.logName"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"更新内容","prop":"logContent"}},[_c('el-input',{attrs:{"type":"textarea","placeholder":"请输入日志内容"},model:{value:(_vm.ruleForm.logContent),callback:function ($$v) {_vm.$set(_vm.ruleForm, "logContent", $$v)},expression:"ruleForm.logContent"}})],1),_vm._v(" "),_c('el-form-item',[_c('el-button',{staticStyle:{"margin-top":"15px"},attrs:{"type":"primary"},on:{"click":function($event){return _vm.submitForm('ruleForm')}}},[_vm._v("确认添加")])],1)],1)],1)]),_vm._v(" "),_c('el-dialog',{attrs:{"title":"编辑更新日志","visible":_vm.dialogVisible02,"width":"700","close-on-click-modal":false},on:{"update:visible":function($event){_vm.dialogVisible02=$event}}},[_c('div',{staticStyle:{"padding":"20px 10px"}},[_c('el-form',{ref:"ruleForm",staticClass:"demo-ruleForm",attrs:{"model":_vm.ruleForm,"rules":_vm.rules,"label-width":"80px","size":"small"}},[_c('el-form-item',{attrs:{"label":"更新标题","prop":"logName"}},[_c('el-input',{attrs:{"placeholder":"请输入日志标题"},model:{value:(_vm.ruleForm.logName),callback:function ($$v) {_vm.$set(_vm.ruleForm, "logName", $$v)},expression:"ruleForm.logName"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"更新内容","prop":"logContent"}},[_c('el-input',{attrs:{"type":"textarea","placeholder":"请输入日志内容"},model:{value:(_vm.ruleForm.logContent),callback:function ($$v) {_vm.$set(_vm.ruleForm, "logContent", $$v)},expression:"ruleForm.logContent"}})],1),_vm._v(" "),_c('el-form-item',[_c('el-button',{staticStyle:{"margin-top":"15px"},attrs:{"type":"primary"},on:{"click":function($event){return _vm.upDateForm('ruleForm')}}},[_vm._v("确认添加")])],1)],1)],1)])],1)}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"equipment-title el-row"},[_c('span',{staticClass:"equipment-title_liner"}),_vm._v(" "),_c('span',{staticClass:"equipment-title_text"},[_vm._v("更新信息 "),_c('i',{staticClass:"el-icon-arrow-right"}),_vm._v(" 更新日志")])])}]
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ var updateLog_updateLog = (esExports);
+// CONCATENATED MODULE: ./src/components/updateLog/updateLog.vue
+function injectStyle (ssrContext) {
+  __webpack_require__("b1oG")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-8f902cac"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  updateLog,
+  updateLog_updateLog,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ var components_updateLog_updateLog = __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "b1oG":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ })
+
+});
