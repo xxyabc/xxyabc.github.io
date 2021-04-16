@@ -200,4 +200,16 @@ $(document).ready(function () {
 
 $(function () {
     console.log(1312312312)
+    $.ajax({
+        type: 'POST',
+        url: 'http://holdem.ia.ac.cn:9002/resourceInfo/searchByKeyWords',
+        data: {
+            pageNum: 1,
+            pageSize: 10
+        },
+        success: function(data){
+            console.log(data)
+        },
+        dataType: dataType
+      });
 })
