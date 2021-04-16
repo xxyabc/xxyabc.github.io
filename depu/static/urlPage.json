@@ -1,7 +1,0 @@
-{
-    "baseUrl1":"http://holdem.ia.ac.cn:9001",
-    "baseUrl2":"http://holdem.ia.ac.cn:9002",
-    "baseIp":"holdem.ia.ac.cn",
-    "zabbix":"http://holdem.ia.ac.cn:8082",
-    "bbs":"http://holdem.ia.ac.cn/bbs"
-}
