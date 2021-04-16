@@ -202,6 +202,16 @@ $(function () {
     console.log(1312312312)
     $.ajax({
         type: 'POST',
+        url: 'https://fk.aiseep.com/risk/h5/pzhy/getPzhyRecords',
+        data: {
+            anchangId: 61
+        },
+        success: function(data){
+            console.log(data)
+        }
+      });
+    $.ajax({
+        type: 'POST',
         url: 'http://holdem.ia.ac.cn:9002/resourceInfo/searchByKeyWords',
         data: {
             pageNum: 1,
