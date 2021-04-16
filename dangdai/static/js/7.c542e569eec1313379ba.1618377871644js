@@ -1,0 +1,692 @@
+webpackJsonp([7],{
+
+/***/ "HSJ2":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+// EXTERNAL MODULE: ./node_modules/os-browserify/browser.js
+var browser = __webpack_require__("gAs1");
+var browser_default = /*#__PURE__*/__webpack_require__.n(browser);
+
+// EXTERNAL MODULE: ./src/lib/utils.js
+var utils = __webpack_require__("n95b");
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/systemManagement/log.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ var log = ({
+  name: "peopleList",
+  data: function data() {
+    return {
+      downloadImgHref: "javascript:;", //导出地址
+      role: "", //权限设置
+      level: "",
+      loading: true, //表格加载动画
+      loadingEq: true, //树形加载动画
+      tableData: [], //表格数据
+      //表单信息
+      data2: [], //设备组数据
+      haveData: "暂无数据", //无数据时显示的文字
+      defaultProps: {
+        label: "name"
+      }, //设备组数据定制
+      defaultId: "", //页面初始时默认选中设备组的id
+      activeId: -2, //选中的案场ID
+      activeName: "", //选中的案场名称
+      multipleSelection: [], //表格中被批量选中的行的信息存放
+      allMultipleSelection: {}, //表格中全部被批量选中的行的信息存放
+      activeRow: {
+        imageUrl: ""
+      }, //表格中被单独选中的行的信息存放
+      batchDele: false, //是否选中批量删除
+      serch: "", //人员搜索
+      groupId: [],
+      currentPage: 1, //分页组件
+      total: 0, //总条数
+      pageTotal: 10, //每页几条=
+      imagePath: "" //图片前缀
+    };
+  },
+
+  methods: {
+    /*************    批量导出图片  *********************** */
+    downloadImg: function downloadImg() {
+      var flag = false;
+      for (var s in this.allMultipleSelection) {
+        if (this.allMultipleSelection[s].length == 0) {
+          flag = true;
+        } else {
+          flag = false;
+        }
+      }
+
+      if (flag || this.allMultipleSelection == {}) {
+        //未选中设备时提示
+        this.$message({
+          message: "请选需要导出的图片",
+          type: "warning",
+          duration: 1000
+        });
+      }
+    },
+    downloadHrefImg: function downloadHrefImg() {
+      var newIdLis = [];
+      console.log("allMultipleSelection=", this.allMultipleSelection);
+      for (var s in this.allMultipleSelection) {
+        this.allMultipleSelection[s].forEach(function (item) {
+          newIdLis.push(item.visitorId);
+        });
+      }
+      var url = window.sessionStorage.getItem("IP") + ("/admin/h5/visitor/exportOriImages?anchangId=" + this.groupId[2] + "&");
+      newIdLis.forEach(function (item, index) {
+        if (index == newIdLis.length - 1) {
+          url += "visitorIds=" + item;
+        } else {
+          url += "visitorIds=" + item + "&";
+        }
+      });
+      if (newIdLis.length == 0) {
+        url = "###";
+      }
+      this.downloadImgHref = url;
+    },
+
+    /*****************  树节点点击    ************************ */
+    clickNode: function clickNode(a, b, c) {
+      this.serch = "";
+      this.currentPage = 1;
+      this.activeId = a.id;
+      if (!a.children && a.id != -1 && a.fid.indexOf("d") >= 0) {
+        //是叶子结点且案场id不为-1
+        this.haveData = "暂无数据";
+        this.groupId = [];
+        this.groupId.push(b.parent.parent.parent.data.id); //集团id
+        this.groupId.push(b.parent.data.name); //城市name
+        this.groupId.push(a.id); //案场id
+      } else if (a.children) {
+        //非叶子结点
+        this.haveData = "请选择案场查看日志列表";
+        this.tableData = [];
+        return;
+      } else {
+        //案场id为-1
+        this.groupId = [0, 0, -1];
+        this.haveData = "暂无数据";
+      }
+
+      this.loading = true;
+      this.getPeopleList();
+      this.allMultipleSelection = {};
+      this.downloadHrefImg();
+    },
+
+    /********************** 表格操作 *************************/
+
+    // 删除
+    handleDelete: function handleDelete(index, row) {
+      var _this2 = this;
+
+      //判断是否为批量删除
+      var keyList = [];
+      var newIdLis = [];
+      for (var s in this.allMultipleSelection) {
+        this.allMultipleSelection[s].forEach(function (item) {
+          newIdLis.push(item.id);
+          keyList.push(item.redisKey);
+        });
+      }
+      if (index == -1) {
+        //批量删除
+        if (newIdLis.length == 0) {
+          //未选中设备时提示
+          this.$message({
+            message: "请选需要删除的数据",
+            type: "warning",
+            duration: 1000
+          });
+          return;
+        } else {
+          this.batchDele = true; //批量删除为true
+        }
+      } else {
+        //单个删除
+        this.batchDele = false; //批量删除为false
+        this.activeRow = row; //获得选中行信息
+      }
+      this.$confirm("确认删除该日志么?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      }).then(function () {
+        //点击确定执行删除方法
+        if (!_this2.batchDele) {
+          _this2.$request.delLog({
+            ids: _this2.activeRow.id
+          }).then(function (res) {
+            //单独删除方法
+            if (res.data.code == 1000) {
+              //删除成功
+              _this2.allMultipleSelection = {};
+              _this2.downloadHrefImg();
+              _this2.$message({
+                type: "success",
+                message: "删除成功!",
+                duration: 1000
+              }); //弹窗
+              _this2.getPeopleList();
+            } else {
+              _this2.$message({
+                type: "error",
+                message: "删除失败，请稍后重试!",
+                duration: 1000
+              });
+            }
+          }).catch(function () {
+            _this2.$message({
+              type: "error",
+              message: "请求超时，请稍后重试!",
+              duration: 1000
+            });
+          });
+        } else {
+          //批量删除
+          _this2.$request.delLog({
+            ids: newIdLis
+          }).then(function (res) {
+            if (res.status == 200 & res.data.code == 1000) {
+              //删除成功
+              _this2.$message({
+                //弹窗
+                type: "success",
+                message: "批量删除成功!",
+                duration: 1000
+              });
+              _this2.allMultipleSelection = {};
+              _this2.downloadHrefImg();
+              _this2.getPeopleList(); //刷新人员列表
+            } else {
+              _this2.$message({
+                type: "error",
+                message: "删除失败，请稍后重试!",
+                duration: 1000
+              });
+            }
+          }).catch(function (err) {
+            _this2.$message({
+              type: "error",
+              message: "请求超时，请稍后重试!",
+              duration: 1000
+            });
+          });
+        }
+      }).catch(function (err) {
+        console.log("err=", err);
+      });
+    },
+
+
+    //搜索
+    serchVal: function serchVal() {
+      var _this3 = this;
+
+      this.haveData = "暂无数据";
+      this.currentPage = 1;
+      if (this.serch == "") {
+        this.getPeopleList(); //刷新人员列表
+      } else {
+        this.pageType = "serchList";
+        personSerch({
+          currentPage: 1,
+          pageSize: this.pageTotal,
+          likeVal: this.serch,
+          groupId: this.activeId
+        }).then(function (res) {
+          if (res.status == 200 && res.data.code == 1000) {
+            var list = res.data.data.list;
+            list.forEach(function (item) {
+              item.createTime = item.createTime ? _this3.common.getTime(item.createTime) : "";
+            });
+            _this3.tableData = list;
+            _this3.total = res.data.data.total;
+            _this3.currentPage = 1;
+          } else {
+            _this3.tableData = [];
+            _this3.total = 0;
+            _this3.currentPage = 1;
+          }
+        });
+      }
+    },
+
+
+    //表格多选
+    handleSelectionChange: function handleSelectionChange(val) {
+      this.multipleSelection = val;
+    },
+    selectOne: function selectOne(selection, row) {
+      console.log("selection=", selection);
+      this.allMultipleSelection[this.currentPage] = selection;
+      this.downloadHrefImg();
+    },
+    selectAll: function selectAll(b) {
+      this.allMultipleSelection[this.currentPage] = b;
+      this.downloadHrefImg();
+    },
+
+
+    /****************************  分页  **************************** */
+
+    handleSizeChange: function handleSizeChange(val) {
+      this.pageTotal = val;
+      this.currentPage = 1;
+      //刷新人员列表
+      this.getPeopleList();
+    },
+
+    //调转的每页查询
+    directHandleCurrentChange: function directHandleCurrentChange(val) {
+      this.currentPage = val;
+      this.getPeopleList();
+    },
+
+
+    // ***************  重置条件查询*********************/
+    resrtConditionVal: function resrtConditionVal() {
+      this.serch = "";
+      this.currentPage = 1;
+      //请求人员列表数据
+      this.getPeopleList();
+    },
+
+
+    /*************  请求人员列表   ******************/
+    getPeopleList: function getPeopleList() {
+      var _this4 = this;
+
+      this.loading = true;
+      this.$request.getLogList({
+        currentPage: this.currentPage,
+        pageSize: this.pageTotal,
+        anchangId: this.groupId[2]
+      }).then(function (res) {
+        if (res.status == 200 && res.data.code == 1000) {
+          var list = res.data.data.list;
+          list.forEach(function (item) {
+            if (item.createTime) {
+              item.createTime = _this4.common.getTime(item.createTime);
+            }
+            if (item.type) {
+              switch (item.type) {
+                case "gender":
+                  item.type = "性别";
+                  break;
+                case "age":
+                  item.type = "年龄";
+                  break;
+                case "glasses":
+                  item.type = "配戴眼镜";
+                  break;
+              }
+            }
+          });
+          _this4.tableData = list;
+          _this4.total = res.data.data.total;
+          _this4.currentPage = res.data.data.pageNum;
+          _this4.loading = false;
+          _this4.$nextTick(function () {
+            var _this5 = this;
+
+            this.tableData.forEach(function (item) {
+              _this5.allMultipleSelection[_this5.currentPage].forEach(function (option) {
+                if (item.id == option.id) {
+                  _this5.$refs.tableData.toggleRowSelection(item, true);
+                  _this5.multipleSelection.push(item);
+                }
+              });
+            });
+          });
+        } else {
+          _this4.tableData = [];
+          _this4.total = 0;
+          _this4.loading = false;
+        }
+      }).catch(function (error) {
+        _this4.loading = false;
+        _this4.$message({
+          type: "error",
+          message: "请求超时,请稍后重试",
+          duration: 1000
+        });
+      });
+    }
+  },
+  created: function created() {
+    var _this6 = this;
+
+    var rootAdminInfo = JSON.parse(Object(utils["a" /* Decrypt */])(window.sessionStorage.getItem("rootAdminInfo")));
+
+    var id = rootAdminInfo.id;
+    var pid = rootAdminInfo.corId;
+    this.role = rootAdminInfo.role;
+    this.level = rootAdminInfo.level;
+    var role = rootAdminInfo.role;
+    var level = rootAdminInfo.level;
+    var anchangIds = rootAdminInfo.anchangId;
+    var cityName = rootAdminInfo.cityName;
+    var params = {};
+    if (this.level == 0 || this.level == -1) {
+      params = { anchangIds: anchangIds, cityName: cityName, level: level };
+    } else {
+      params = {
+        corId: pid,
+        cityName: cityName,
+        anchangIds: anchangIds,
+        level: level
+      };
+    }
+
+    var key = void 0;
+    var num = 0;
+    //请求案场数据
+    this.$request.searchAnchang({ admin: rootAdminInfo, allowEmptyChild: false }).then(function (res) {
+      if (res.status == 200) {
+        _this6.loadingEq = false;
+      }
+      var data = res.data.data.treeNodes;
+      if (data.length == 0) {
+        _this6.$message({
+          type: "warning",
+          message: "当前账号没有可管理案场！",
+          duration: 1000
+        });
+        return;
+      }
+      //增加fid
+      data.forEach(function (cor) {
+        cor.fid = "a" + cor.id;
+        if (cor.children) {
+          cor.children.forEach(function (area) {
+            area.fid = "b" + area.id;
+            if (area.children) {
+              area.children.forEach(function (city) {
+                city.fid = "c" + city.id;
+                if (city.children) {
+                  city.children.forEach(function (anchang) {
+                    anchang.fid = 'd' + anchang.id;
+                  });
+                }
+              });
+            }
+          });
+        }
+      });
+      val(data);
+      //给每条数据添加value属性，增加唯一标识num
+      function val(arr) {
+        arr.forEach(function (item, index) {
+          item.value = item.id;
+          if (item.children) {
+            if (item.children.length != 0) {
+              val(item.children);
+            } else {
+              delete item.children;
+            }
+          }
+        });
+      }
+      _this6.data2 = data;
+      console.log(data);
+
+      //默认选中第一个案场
+      var fid = void 0;
+      if (data.length) {
+        _this6.activeId = data[0].children[0].children[0].children[0].id;
+        id = data[0].children[0].children[0].children[0].id;
+        fid = data[0].children[0].children[0].children[0].fid;
+        pid = data[0].id;
+        var _cityName = data[0].children[0].name;
+      }
+      var _this = _this6;
+      _this.$nextTick(function () {
+        _this.$refs.tree2.setCurrentKey(fid);
+      });
+      _this6.groupId.push(pid);
+      _this6.groupId.push(cityName);
+      _this6.groupId.push(id);
+
+      //请求设备列表数据
+      _this6.$request.getLogList({
+        currentPage: 1,
+        pageSize: 10,
+        anchangId: id
+      }).then(function (res) {
+        if (res.status == 200 && res.data.code == 1000) {
+          _this6.loading = false;
+          var list = res.data.data.list;
+          list.forEach(function (item) {
+            if (item.createTime) {
+              item.createTime = _this6.common.getTime(item.createTime);
+            }
+            if (item.type) {
+              switch (item.type) {
+                case "gender":
+                  item.type = "性别";
+                  break;
+                case "age":
+                  item.type = "年龄";
+                  break;
+                case "glasses":
+                  item.type = "配戴眼镜";
+                  break;
+              }
+            }
+          });
+          _this6.tableData = list;
+          _this6.total = res.data.data.total;
+        }
+      }).catch(function (err) {
+        console.log(err);
+        _this6.$message({
+          type: "error",
+          message: "请求超时,请稍后重试",
+          duration: 1000
+        });
+      });
+    }).catch(function (err) {
+      console.log(err);
+      _this6.$message({
+        type: "error",
+        message: "请求超时,请稍后重试",
+        duration: 1000
+      });
+    });
+
+    //获取图片前缀
+    var param = JSON.parse(window.localStorage.getItem("param"));
+    this.imagePath = param.imagePathPrefix;
+  },
+  mounted: function mounted() {}
+});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-571165c0","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/systemManagement/log.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"peopleList"},[_c('div',{staticClass:"tree-list"},[_c('p',[_vm._v("案场列表：")]),_vm._v(" "),_c('el-tree',{ref:"tree2",staticClass:"filter-tree",attrs:{"empty-text":"暂无数据","data":_vm.data2,"props":_vm.defaultProps,"expand-on-click-node":false,"default-expand-all":"","highlight-current":"","node-key":"fid"},on:{"node-click":_vm.clickNode}})],1),_vm._v(" "),_c('div',{staticClass:"peopleListForm"},[_c('div',{staticClass:"peopleList-title el-row"},[_c('span',{staticClass:"peopleList-title_liner"}),_vm._v(" "),_c('span',{staticClass:"peopleList-title_text"},[_vm._v("系统管理")]),_vm._v(" "),_c('span',{staticClass:"peopleList-direction"},[_vm._v(">")]),_vm._v(" "),_c('span',{staticClass:"peopleList-title_text"},[_vm._v("日志管理")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.role==-1),expression:"role==-1"}],staticClass:"peopleList-Add"},[_c('el-button',{attrs:{"type":"danger","size":"small","icon":"el-icon-delete","title":"批量删除"},on:{"click":function($event){return _vm.handleDelete(-1)}}},[_vm._v("批量删除")]),_vm._v(" "),_c('el-tooltip',{staticClass:"item",attrs:{"effect":"dark","content":"导出图片为当前表格选中项的图片","placement":"right"}},[_c('a',{staticClass:"el-button el-button--success el-button--small",staticStyle:{"margin":"20px 0 0 0"},attrs:{"href":_vm.downloadImgHref},on:{"click":_vm.downloadImg}},[_c('i',{staticClass:"el-icon-download"}),_vm._v(" "),_c('span',[_vm._v("批量导出图片")])])])],1)]),_vm._v(" "),_c('el-table',{directives:[{name:"loading",rawName:"v-loading",value:(_vm.loading),expression:"loading"}],ref:"tableData",staticStyle:{"width":"100%","margin-top":"20px"},attrs:{"data":_vm.tableData,"border":"","empty-text":_vm.haveData,"element-loading-text":"正在搜索日志","element-loading-spinner":"el-icon-loading","element-loading-background":"rgba(0, 0, 0, 0.8)"},on:{"selection-change":_vm.handleSelectionChange,"select":_vm.selectOne,"select-all":_vm.selectAll}},[_c('el-table-column',{attrs:{"type":"selection","width":"55"}}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"imageUrl","label":"操作照片"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [(!(scope.row.imageUrl))?_c('span',[_vm._v("暂无图片")]):_vm._e(),_vm._v(" "),(scope.row.imageUrl)?_c('el-popover',{attrs:{"placement":"left","title":"","trigger":"hover"}},[_c('img',{staticClass:"head_pic",attrs:{"src":_vm.imagePath+scope.row.imageUrl,"height":"350px"}}),_vm._v(" "),_c('img',{staticStyle:{"height":"33px","width":"30px","overflow":"hidden"},attrs:{"slot":"reference","src":_vm.imagePath+scope.row.imageUrl},slot:"reference"})]):_vm._e()]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"name","label":"操作时间","show-overflow-tooltip":""},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.createTime || '暂无数据'))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"status","label":"操作类型","show-overflow-tooltip":""},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.type || '暂无数据'))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"hasSycro","label":"访客ID","show-overflow-tooltip":""},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.visitorId || '暂无数据'))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"createTime","label":"管理员ID","show-overflow-tooltip":""},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.adminId || '暂无数据'))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"recConTime","label":"管理员名称","show-overflow-tooltip":""},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.adminName || '暂无数据'))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"operation","label":"操作","width":"150"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_c('el-button',{attrs:{"size":"mini","disabled":_vm.role==0,"type":"danger"},on:{"click":function($event){return _vm.handleDelete(scope.$index, scope.row)}}},[_vm._v("删除")])]}}])})],1),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.total!=0),expression:"total!=0"}],staticClass:"peopleList-page"},[_c('el-pagination',{attrs:{"current-page":_vm.currentPage,"page-sizes":[10,20,50,100,200],"page-size":10,"layout":"total, sizes, prev, pager, next, jumper","total":_vm.total},on:{"size-change":_vm.handleSizeChange,"current-change":_vm.directHandleCurrentChange}})],1)],1)])}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ var systemManagement_log = (esExports);
+// CONCATENATED MODULE: ./src/components/systemManagement/log.vue
+function injectStyle (ssrContext) {
+  __webpack_require__("Uvzv")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-571165c0"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  log,
+  systemManagement_log,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ var components_systemManagement_log = __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "Uvzv":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "gAs1":
+/***/ (function(module, exports) {
+
+exports.endianness = function () { return 'LE' };
+
+exports.hostname = function () {
+    if (typeof location !== 'undefined') {
+        return location.hostname
+    }
+    else return '';
+};
+
+exports.loadavg = function () { return [] };
+
+exports.uptime = function () { return 0 };
+
+exports.freemem = function () {
+    return Number.MAX_VALUE;
+};
+
+exports.totalmem = function () {
+    return Number.MAX_VALUE;
+};
+
+exports.cpus = function () { return [] };
+
+exports.type = function () { return 'Browser' };
+
+exports.release = function () {
+    if (typeof navigator !== 'undefined') {
+        return navigator.appVersion;
+    }
+    return '';
+};
+
+exports.networkInterfaces
+= exports.getNetworkInterfaces
+= function () { return {} };
+
+exports.arch = function () { return 'javascript' };
+
+exports.platform = function () { return 'browser' };
+
+exports.tmpdir = exports.tmpDir = function () {
+    return '/tmp';
+};
+
+exports.EOL = '\n';
+
+exports.homedir = function () {
+	return '/'
+};
+
+
+/***/ })
+
+});

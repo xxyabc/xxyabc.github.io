@@ -1,0 +1,2411 @@
+webpackJsonp([5],{
+
+/***/ "IF3o":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "Jks+":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/jpeg;base64,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"
+
+/***/ }),
+
+/***/ "KVY6":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+// EXTERNAL MODULE: ./node_modules/babel-runtime/core-js/object/assign.js
+var object_assign = __webpack_require__("woOf");
+var assign_default = /*#__PURE__*/__webpack_require__.n(object_assign);
+
+// EXTERNAL MODULE: ./src/lib/utils.js
+var utils = __webpack_require__("n95b");
+
+// EXTERNAL MODULE: ./src/lib/imgExif.js
+var imgExif = __webpack_require__("uGxA");
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/dataManagement/consultant.vue
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ var consultant = ({
+  name: "consultant",
+  data: function data() {
+    return {
+      status: 1, //  当前显示数据状态  1为在建ID 0为回收站
+      role: "", //  登录角色 -1 管理员  0 工作人员
+      level: "", //登录权限
+      imagePath: "", //图片前缀
+      downloadHref: "###", //导出地址
+      fileList: [], //导入图片存放数组
+      newFileList: [], //经过处理的图片放入数组
+      dialogImageUrl: "",
+      dialogVisible: false,
+      params: "",
+      uploadLoading: false,
+      //导出条件
+      dlDateList: [], //导出时间
+      dlAgeSelect: "", //年龄
+      dlHaveGlasses: "",
+      dlGender: "",
+      dlThroughStatus: "",
+      dlTimesSelect: "",
+      dlSelectTimeCondition: "",
+      dlSelectCondition: "",
+      dlFlowUsername: "",
+      data2: [], //设备组数据
+      activeId: -2, //选中的案场id
+      groupId: [], //0位是集团id，1位是案场id
+      haveData: "暂无数据", //无数据时显示的文字
+      multipleSelection: [], //表格中被批量选中的行的信息存放
+      batchDele: false, //是否选中批量删除
+      ageType: [], //年龄段
+      defaultProps: {
+        label: "name"
+      }, //设备组数据定制
+      pickerOptions: {
+        //日期输入框格式
+        firstDayOfWeek: 1
+      },
+      ageOptions: [{
+        value: "5",
+        label: ">56岁"
+      }, {
+        value: "4",
+        label: "46-55岁"
+      }, {
+        value: "3",
+        label: "31-45岁"
+      }, {
+        value: "2",
+        label: "19-30岁"
+      }, {
+        value: "1",
+        label: "<18岁"
+      }],
+      timesOptions: [{
+        value: "1",
+        label: "首次"
+      }, {
+        value: "2",
+        label: "2-4次"
+      }, {
+        value: "4",
+        label: "4次以上"
+      }],
+      serchOptions: [
+      //搜索条件
+      {
+        value: "saler",
+        label: "顾问"
+      }, {
+        value: "realName",
+        label: "姓名"
+      }, {
+        value: "phone",
+        label: "联系方式"
+      }, {
+        value: "remark",
+        label: "备注"
+      }, {
+        value: "labels",
+        label: "组别"
+      }],
+      selectCondition: "", //选中条件
+      serchTimeOptions: [
+      //时间段下拉列表
+      {
+        label: "首次",
+        value: "createTime"
+      }, {
+        label: "上次",
+        value: "lastVisitTime"
+      }, {
+        label: "最近",
+        value: "recVisitTime"
+      }],
+      selectTimeCondition: "", //时间段选择方式
+      throughStatus: "", //通行状态选择
+      gender: "", //性别选择
+      haveGlasses: "", //配戴眼镜
+      timesSelect: "", //访问次数
+      ageSelect: "",
+      param: {},
+      imgType: "0",
+      group: "", //顾问组别
+      loading: true, // loding加载
+      date: [], //自由选择时间
+      dateList: [], //选中的时间段存放
+      flowUsername: "", // 条件查询用户查询
+      flowManagementTable: [
+        //表格数据
+      ],
+      activeIndex: 0, //当前选中的表格数据的下标
+      queryFuzzey: 1, //判断是否为执行模糊操作
+      flowUsertotel: 0, //总条数
+      flowUsercurrentPage: 1, //当前页数
+      flowUserPageSize: 1, //一页显示多少条数据
+      dialogFormVisible: false, //编辑弹窗
+      dialogUpload: false, //导入弹窗
+      activeRow: {}, //选中行信息存放
+      Updataform: {
+        //编辑表单
+        type: "", //类型
+        remark: "", //备注
+        realName: "", //访客姓名
+        phone: "", //联系方式
+        saler: "", //顾问姓名
+        gender: "", //性别
+        age: "", //年龄
+        glasses: "", //是否戴眼镜
+        imgurl: "" //访客照片
+      },
+      groupOptions: []
+    };
+  },
+
+  methods: {
+    //改变表格显示数据
+    changeStatus: function changeStatus(status) {
+      this.flowUsercurrentPage = 1;
+      this.status = status;
+      this.flowUserManagementqueryFuzzy();
+    },
+    openUpload: function openUpload() {
+      var _this2 = this;
+
+      this.dialogUpload = true;
+      this.$request.serchGroupLabels({
+        queryType: "all",
+        anchangId: this.groupId[1]
+      }).then(function (res) {
+        if (res.data.code == "1000") {
+          _this2.groupOptions = res.data.data;
+        }
+      });
+    },
+    handleRemove: function handleRemove(file, fileList) {
+      //图片删除前
+      var index = this.fileList.indexOf(file);
+      this.newFileList.splice(index, 1);
+    },
+    handlePreview: function handlePreview(file) {
+      //图片点击时
+      this.dialogImageUrl = file.url;
+      this.dialogVisible = true;
+    },
+    imageChange: function imageChange(file, fileList) {
+      var _this3 = this;
+
+      //图片改变时
+      this.uploadLoading = true;
+      this.fileList = fileList;
+      var isJPG = file.raw.type === "image/jpeg";
+      var isPNG = file.raw.type === "image/png";
+      if (!(isJPG || isPNG)) {
+        this.$message({
+          type: "warning",
+          message: "请选择格式为jpeg或png格式的文件",
+          duration: 1000
+        });
+        this.fileList.pop();
+        return false;
+      }
+      //返回参数为base64
+      Object(imgExif["a" /* getImgMsg */])(file.raw).then(function (res) {
+        file.url = res;
+        //将base64转换为file格式
+        var newfile = _this3.common.dataURLtoFile(res, file.name);
+        _this3.newFileList.push(newfile);
+        //当所有照片都转换完成后 关闭loading
+        if (_this3.newFileList.length == _this3.fileList.length) {
+          _this3.uploadLoading = false;
+        }
+      });
+    },
+
+    //确认批量导入
+    Upload: function Upload() {
+      var _this4 = this;
+
+      if (this.group == "" || !this.newFileList.length) {
+        this.$message({
+          type: "warning",
+          message: "组别或图片为空!",
+          duration: 1000
+        }); //弹窗
+        return false;
+      }
+      this.uploadLoading = true;
+      this.param = new FormData();
+      this.param.append("corId", this.groupId[0]);
+      this.param.append("anchangId", this.groupId[1]);
+      this.param.append("type", this.imgType);
+      this.param.append("labels", this.group);
+
+      var arr = [];
+      this.newFileList.forEach(function (item, index) {
+        _this4.param.append("imageFile", item);
+        _this4.param.append("names", item.name);
+      });
+
+      this.$request.uploadConsultant(this.param).then(function (res) {
+        if (res.data.code == "1000") {
+          _this4.$message({
+            type: "success",
+            message: "导入成功!",
+            duration: 1000
+          }); //弹窗
+        } else {
+          _this4.$message({
+            type: "error",
+            message: res.data.msg,
+            duration: 1000
+          });
+        }
+        _this4.uploadLoading = false;
+        _this4.closeUpload();
+        _this4.flowUserManagementqueryFuzzy();
+      }).catch(function (error) {
+        _this4.$message({
+          type: "error",
+          message: "导入失败，请稍后重试!",
+          duration: 1000
+        });
+        _this4.uploadLoading = false;
+        _this4.closeUpload();
+      });
+    },
+
+    //取消批量导入
+    closeUpload: function closeUpload() {
+      this.fileList = [];
+      this.newFileList = [];
+      this.group = "";
+      this.dialogUpload = false;
+    },
+
+    //批量导出
+    download: function download() {
+      var startTime = this.dlDateList.length != 0 ? this.dlDateList[0] : "";
+      var endTime = this.dlDateList.length != 0 ? this.dlDateList[1] : "";
+
+      this.downloadHref = window.sessionStorage.getItem("IP") + "/admin/h5/visitor/exportAllByCondition?corId=" + this.groupId[0] + "&anchangId=" + this.groupId[1] + "&startTime=" + startTime + "&endTime=" + endTime + "&age=" + this.dlAgeSelect + "&glasses=" + this.dlHaveGlasses + "&gender=" + this.dlGender + "&type=0&visitNum=" + this.dlTimesSelect + "&timeType=" + this.dlSelectTimeCondition + "&key=" + this.dlSelectCondition + "&" + this.dlSelectCondition + "=" + this.dlFlowUsername + "&status=" + this.status;
+    },
+
+
+    /*****************  树节点点击    ************************ */
+    clickNode: function clickNode(a, b, c) {
+      //共三个参数，依次为：传递给 data 属性的数组中该节点所对应的对象、节点对应的 Node、节点组件本身。
+      this.pageType = "tableList";
+      this.serch = "";
+      this.flowUsercurrentPage = 1;
+      if (!a.children && a.fid.indexOf("d") >= 0) {
+        //点击的是最后一级
+        this.haveData = "暂无数据";
+        this.groupId = [];
+        //groupId中存入集团ID和案场ID
+        this.groupId.push(Number(b.parent.parent.parent.data.id));
+        this.groupId.push(Number(a.id));
+      } else {
+        //如果点击的不是最后一级案场
+        this.haveData = "请选择案场查看顾问列表";
+        this.flowManagementTable = [];
+        return;
+      }
+
+      this.loading = true;
+      this.flowUserManagementqueryFuzzy();
+    },
+
+    //每页的查询
+    handleSizeChange: function handleSizeChange(val) {
+      this.flowUserPageSize = parseInt("" + val);
+      this.loading = true; //表格加载动画
+      this.flowUserManagementqueryFuzzy();
+    },
+
+    //调转的每页查询
+    directHandleCurrentChange: function directHandleCurrentChange(val) {
+      this.flowUsercurrentPage = parseInt("" + val);
+      this.loading = true; //表格加载动画
+      this.flowUserManagementqueryFuzzy();
+    },
+
+
+    //表格多选
+    handleSelectionChange: function handleSelectionChange(val) {
+      this.multipleSelection = val;
+    },
+
+
+    // 删除
+    handleDelete: function handleDelete(index, row) {
+      var _this5 = this;
+
+      //判断是否为批量删除
+      if (index == -1) {
+        //批量删除
+        if (this.multipleSelection.length == 0) {
+          //未选中设备时提示
+          this.$message({
+            message: "请选需要删除的数据",
+            type: "warning",
+            duration: 1000
+          });
+          return;
+        } else {
+          this.batchDele = true; //批量删除为true
+        }
+      } else {
+        //单个删除
+        this.batchDele = false; //批量删除为false
+        this.activeRow = row; //获得选中行信息
+      }
+      this.$confirm("该id将被移入回收站且不可恢复，确认执行该操作？", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      }).then(function () {
+        //点击确定执行删除方法
+        if (!_this5.batchDele) {
+          _this5.$request.delRawData({
+            ids: _this5.activeRow.id,
+            redisKeys: _this5.activeRow.redisKey,
+            anchangId: _this5.activeRow.anchangId
+          }).then(function (res) {
+            //单独删除方法
+            if (res.data.code == 1000) {
+              //删除成功
+              _this5.$message({
+                type: "success",
+                message: "删除成功!",
+                duration: 1000
+              }); //弹窗
+              _this5.flowUserManagementqueryFuzzy();
+            } else {
+              _this5.$message({
+                type: "error",
+                message: "删除失败，请稍后重试!",
+                duration: 1000
+              });
+            }
+          }).catch(function () {
+            _this5.$message({
+              type: "error",
+              message: "请求超时，请稍后重试!",
+              duration: 1000
+            });
+          });
+        } else {
+          //批量删除
+          var list = [];
+          var keyList = [];
+          _this5.multipleSelection.forEach(function (item) {
+            list.push(item.id);
+            keyList.push(item.redisKey);
+          });
+          _this5.$request.delRawData({
+            ids: list,
+            redisKeys: keyList,
+            anchangId: _this5.activeId
+          }).then(function (res) {
+            if (res.status == 200 & res.data.code == 1000) {
+              //删除成功
+              _this5.$message({
+                //弹窗
+                type: "success",
+                message: "批量删除成功!",
+                duration: 1000
+              });
+              _this5.flowUserManagementqueryFuzzy(); //刷新人员列表
+            } else {
+              _this5.$message({
+                type: "error",
+                message: "删除失败，请稍后重试!",
+                duration: 1000
+              });
+            }
+          }).catch(function (err) {
+            _this5.$message({
+              type: "error",
+              message: "请求超时，请稍后重试!",
+              duration: 1000
+            });
+          });
+        }
+      }).catch(function () {});
+    },
+    timeChange: function timeChange() {
+      if (this.date) {
+        if (this.selectTimeCondition != "" && this.date.length != 0) {
+          this.queryFuzzey = 1;
+          this.loading = true; //表格加载动画
+          this.flowUsercurrentPage = 1;
+          this.dlSelectCondition = this.selectCondition, this.dlFlowUsername = this.flowUsername, this.dlDateList = this.date, this.flowUserManagementqueryFuzzy();
+        }
+      }
+    },
+    serchChange: function serchChange() {
+      this.queryFuzzey = 1;
+      this.loading = true; //表格加载动画
+      this.flowUsercurrentPage = 1;
+      this.dlSelectCondition = this.selectCondition, this.dlFlowUsername = this.flowUsername, this.dlDateList = this.date, this.flowUserManagementqueryFuzzy();
+    },
+
+    //条件查询数据
+    flowUserSel: function flowUserSel() {
+      this.queryFuzzey = 1;
+      this.loading = true; //表格加载动画
+      this.flowUsercurrentPage = 1;
+      this.dlSelectCondition = this.selectCondition, this.dlFlowUsername = this.flowUsername, this.dlDateList = this.date, this.flowUserManagementqueryFuzzy();
+    },
+
+    //重置条件查询数据
+    flowUserReset: function flowUserReset() {
+      this.loading = true; //表格加载动画
+
+      this.ageSelect = "";
+      this.haveGlasses = "";
+      this.gender = "";
+      this.timesSelect = "";
+      this.selectTimeCondition = "";
+      this.selectCondition = "";
+      this.flowUsername = "";
+      this.dateList = [];
+      this.date = [];
+      this.dlDateList = [];
+      this.dlAgeSelect = this.ageSelect;
+      this.dlHaveGlasses = this.haveGlasses;
+      this.dlGender = this.gender;
+      this.dlTimesSelect = this.timesSelect;
+      this.dlSelectTimeCondition = this.selectTimeCondition;
+      this.dlSelectCondition = this.selectCondition;
+      this.dlFlowUsername = this.flowUsername;
+
+      this.queryFuzzey = 1;
+      this.flowUsercurrentPage = 1;
+      this.dlSelectCondition = this.selectCondition;
+      this.dlFlowUsername = this.flowUsername;
+      this.dlDateList = this.dateList;
+      this.flowUserManagementqueryFuzzy();
+    },
+
+    //判断条件queryFuzzey 是否为条件查询
+    flowUserManagementqueryFuzzy: function flowUserManagementqueryFuzzy() {
+      var _this6 = this;
+
+      this.loading = true;
+      this.timeList();
+      var data = {
+        currentPage: this.flowUsercurrentPage,
+        pageSize: this.flowUserPageSize,
+        startTime: this.dateList.length != 0 ? this.dateList[0] : "",
+        endTime: this.dateList.length != 0 ? this.dateList[1] : "",
+        age: this.ageSelect,
+        glasses: this.haveGlasses,
+        gender: this.gender,
+        type: 0,
+        visitNum: this.timesSelect,
+        anchangId: this.groupId[1],
+        corId: this.groupId[0],
+        timeType: this.selectTimeCondition,
+        key: this.selectCondition,
+        status: this.status,
+        mark: 0
+      };
+      data[this.selectCondition] = this.flowUsername;
+      this.dlAgeSelect = this.ageSelect;
+      this.dlHaveGlasses = this.haveGlasses;
+      this.dlGender = this.gender;
+      this.dlTimesSelect = this.timesSelect;
+      this.dlSelectTimeCondition = this.selectTimeCondition;
+      this.dlSelectCondition = this.selectCondition;
+      this.dlFlowUsername = this.flowUsername;
+      this.$request.getRawDataList(data).then(function (res) {
+        if (res.data.code == "1000") {
+          if (res.data.baseURL) {
+            _this6.imagePath = res.data.baseURL;
+          }
+          _this6.loading = false;
+          _this6.ageType = [];
+          var list = res.data.data.list;
+          list.forEach(function (item, index) {
+            item.createTime = item.createTime ? _this6.common.getTime(item.createTime) : "";
+            item.lastVisitTime = item.lastVisitTime ? _this6.common.getTime(item.lastVisitTime) : "";
+            item.recVisitTime = item.recVisitTime ? _this6.common.getTime(item.recVisitTime) : "";
+            if (item.age == 1) {
+              _this6.ageType.push("<18岁");
+            } else if (item.age == 2) {
+              _this6.ageType.push("19-30岁");
+            } else if (item.age == 3) {
+              _this6.ageType.push("31-45岁");
+            } else if (item.age == 4) {
+              _this6.ageType.push("46-55岁");
+            } else if (item.age == 5) {
+              _this6.ageType.push(">56岁");
+            } else {
+              _this6.ageType.push(null);
+            }
+            item.index = (res.data.data.pageNum - 1) * res.data.data.pageSize + index + 1;
+          });
+          _this6.flowManagementTable = list;
+          _this6.flowUsertotel = res.data.data.total;
+          _this6.flowUsercurrentPage = res.data.data.pageNum;
+        } else {
+          _this6.$message({
+            type: "error",
+            message: "请求超时，请稍后重试!",
+            duration: 1000
+          });
+        }
+        _this6.loading = false;
+      }).catch(function (err) {
+        console.log("err=", err);
+        _this6.$message({
+          type: "error",
+          message: "请求超时，请稍后重试!",
+          duration: 1000
+        });
+        _this6.loading = false;
+      });
+    },
+
+    //条件查询时间段选中
+    timeList: function timeList() {
+      this.dateList = [];
+      this.dlDateList = [];
+
+      //选择自由查询
+      var today = new Date();
+      var endTime;
+
+      if (this.date) {
+        if (this.date.length != 0) {
+          var startTime = this.date[0];
+          var year = this.date[1].getFullYear();
+          var month = this.date[1].getMonth();
+          var day = this.date[1].getDate();
+          var chooseDay = new Date(year, month, day, 23, 59, 59);
+          if (chooseDay.getTime() >= today.getTime()) {
+            if (this.level != 0 && this.level != -1) {
+              endTime = today.getTime() - 180000;
+            } else {
+              endTime = chooseDay.getTime();
+            }
+          } else {
+            endTime = chooseDay.getTime();
+          }
+          this.dateList = [this.common.getTime(startTime.getTime()), this.common.getTime(endTime)];
+        } else {
+          if (this.level != 0 && this.level != -1) {
+            endTime = today.getTime() - 180000;
+          } else {
+            endTime = today.getTime();
+          }
+          this.dateList = ["", this.common.getTime(endTime)];
+        }
+      } else {
+        if (this.level != 0 && this.level != -1) {
+          endTime = today.getTime() - 180000;
+        } else {
+          endTime = today.getTime();
+        }
+        this.dateList = ["", this.common.getTime(endTime)];
+      }
+    },
+
+
+    //取消编辑
+    closeUpdataFromRequire: function closeUpdataFromRequire() {
+      this.$refs["activeRow"].resetFields();
+      this.dialogFormVisible = false;
+    },
+
+    // 编辑
+    handleEdit: function handleEdit(index, row) {
+      this.activeRow = assign_default()(this.activeRow, row);
+      this.Updataform.type = this.activeRow.type + "";
+      this.Updataform.remark = this.activeRow.remark;
+      this.Updataform.realName = this.activeRow.realName;
+      this.Updataform.phone = this.activeRow.phone;
+      this.Updataform.saler = this.activeRow.salergender;
+      this.Updataform.gender = this.activeRow.gender + "";
+      this.Updataform.age = this.activeRow.age ? this.activeRow.age + "" : "";
+      this.Updataform.glasses = this.activeRow.glasses + "";
+      this.Updataform.imgurl = this.imagePath + this.activeRow.imageName;
+
+      this.dialogFormVisible = true;
+    },
+    recovery: function recovery(index, row) {},
+
+
+    //下一个
+    next: function next() {
+      if (this.activeIndex < this.flowManagementTable.length - 1) {
+        this.activeIndex++;
+        var row = this.flowManagementTable[this.activeIndex];
+        this.handleEdit(this.activeIndex, row);
+      } else {
+        this.$message({
+          message: "已是最后一条数据",
+          type: "warning"
+        });
+      }
+    },
+
+    //上一个
+    prev: function prev() {
+      if (this.activeIndex > 0) {
+        this.activeIndex--;
+        var row = this.flowManagementTable[this.activeIndex];
+        this.handleEdit(this.activeIndex, row);
+      } else {
+        this.$message({
+          message: "已是第一条数据",
+          type: "warning"
+        });
+      }
+    },
+
+    // 提交编辑
+    updataFromRequire: function updataFromRequire(activeRow) {
+      var _this7 = this;
+
+      this.$request.updateRawData({
+        type: this.Updataform.type,
+        remark: this.Updataform.remark,
+        realName: this.Updataform.realName,
+        phone: this.Updataform.phone,
+        saler: this.Updataform.saler,
+        id: this.activeRow.id,
+        gender: this.Updataform.gender,
+        age: this.Updataform.age,
+        glasses: this.Updataform.glasses
+      }).then(function (res) {
+        if (res.status == 200 && res.data.code == "1000") {
+          _this7.dialogFormVisible = !_this7.dialogFormVisible;
+          //操作成功
+          _this7.$message({
+            //弹窗
+            type: "success",
+            message: "更新成功!",
+            duration: 1000
+          });
+          _this7.closeUpdataFromRequire();
+          _this7.dialogVisible = false;
+          _this7.flowUserManagementqueryFuzzy(); //刷新列表
+        } else {
+          _this7.$message({
+            type: "error",
+            message: res.data.msg,
+            duration: 1000
+          });
+        }
+      }).catch(function () {
+        _this7.$message({
+          type: "error",
+          message: "请求超时，请稍后重试!"
+        });
+        _this7.dialogVisible = false;
+        _this7.dialogFormVisible = !_this7.dialogFormVisible;
+        _this7.closeUpdataFromRequire();
+      });
+    }
+  },
+
+  beforeCreate: function beforeCreate() {
+    var _this8 = this;
+
+    this.flowUsercurrentPage = 1;
+    this.flowUserPageSize = 10;
+    var rootAdminInfo = JSON.parse(Object(utils["a" /* Decrypt */])(window.sessionStorage.getItem("rootAdminInfo")));
+    var id = rootAdminInfo.id;
+    var pid = rootAdminInfo.corId;
+    var role = rootAdminInfo.role;
+    var level = rootAdminInfo.level;
+    var anchangIds = rootAdminInfo.anchangId;
+    var cityName = rootAdminInfo.cityName;
+    var endTime = void 0;
+    if (level != 0 && level != -1) {
+      endTime = new Date().getTime() - 180000;
+    } else {
+      endTime = new Date().getTime();
+    }
+    this.role = role;
+    this.level = level;
+
+    var params = {};
+    if (this.level == -1 || this.level == 0) {
+      params = { anchangIds: anchangIds, cityName: cityName, level: level };
+    } else {
+      params = {
+        level: level,
+        corId: pid,
+        cityName: cityName,
+        anchangIds: anchangIds
+      };
+    }
+
+    var key = void 0;
+    var num = 0;
+    //请求案场数据
+    this.$request.searchAnchang({ admin: rootAdminInfo, allowEmptyChild: false }).then(function (response) {
+      var res = response.data;
+      console.log(res);
+      if (res.code == "1000") {
+        //给每条数据添加value属性，增加唯一标识num
+        var _val = function _val(arr) {
+          arr.forEach(function (item, index) {
+            item.value = item.id;
+            if (item.children) {
+              if (item.children.length != 0) {
+                _val(item.children);
+              } else {
+                delete item.children;
+              }
+            }
+          });
+        };
+
+        _this8.loadingEq = false;
+        var data = res.data.treeNodes;
+        if (data.length == 0) {
+          _this8.$message({
+            type: "warning",
+            message: "当前账号没有可管理案场！",
+            duration: 1000
+          });
+          return;
+        }
+        //增加fid
+        data.forEach(function (cor) {
+          cor.fid = "a" + cor.id;
+          if (cor.children) {
+            cor.children.forEach(function (area) {
+              area.fid = "b" + area.id;
+              if (area.children) {
+                area.children.forEach(function (city) {
+                  city.fid = "c" + city.id;
+                  if (city.children) {
+                    city.children.forEach(function (anchang) {
+                      anchang.fid = "d" + anchang.id;
+                    });
+                  }
+                });
+              }
+            });
+          }
+        });
+        _val(data);
+        _this8.data2 = data;
+        console.log(data);
+
+        //默认选中第一个案场
+        var fid = void 0;
+        if (data.length) {
+          _this8.activeId = data[0].children[0].children[0].children[0].id;
+          id = data[0].children[0].children[0].children[0].id;
+          fid = data[0].children[0].children[0].children[0].fid;
+          pid = data[0].id;
+        }
+
+        var _this = _this8;
+        _this.$nextTick(function () {
+          _this.$refs.tree2.setCurrentKey(fid);
+        });
+        _this8.groupId.push(Number(pid));
+        _this8.groupId.push(Number(id));
+
+        _this8.$request.getRawDataList({
+          currentPage: 1,
+          pageSize: 10,
+          anchangId: id,
+          corId: pid,
+          status: 1,
+          type: 0,
+          endTime: _this8.common.getTime(endTime),
+          mark: 0
+        }).then(function (res) {
+          if (res.data.code == "1000") {
+            if (res.data.baseURL) {
+              _this8.imagePath = res.data.baseURL;
+            }
+            _this8.loading = false;
+            _this8.flowUserPageSize = 10;
+            var list = res.data.data.list;
+            list.forEach(function (item, index) {
+              item.createTime = item.createTime ? _this8.common.getTime(item.createTime) : "";
+              item.lastVisitTime = item.lastVisitTime ? _this8.common.getTime(item.lastVisitTime) : "";
+              item.recVisitTime = item.recVisitTime ? _this8.common.getTime(item.recVisitTime) : "";
+              if (item.age == 1) {
+                _this8.ageType.push("<18岁");
+              } else if (item.age == 2) {
+                _this8.ageType.push("19-30岁");
+              } else if (item.age == 3) {
+                _this8.ageType.push("31-45岁");
+              } else if (item.age == 4) {
+                _this8.ageType.push("46-55岁");
+              } else if (item.age == 5) {
+                _this8.ageType.push(">56岁");
+              } else {
+                _this8.ageType.push(null);
+              }
+              item.index = index + 1;
+            });
+            _this8.flowManagementTable = list;
+            _this8.flowUsertotel = res.data.data.total;
+            _this8.flowUsercurrentPage = res.data.data.pageNum;
+          }
+        }).catch(function (err) {
+          _this8.$message({
+            type: "error",
+            message: "请求超时，请稍后重试!",
+            duration: 1000
+          });
+        });
+      }
+    }).catch(function (err) {
+      _this8.$message({
+        type: "error",
+        message: "请求超时，请稍后重试!",
+        duration: 1000
+      });
+      console.log("err=", err);
+    });
+  },
+  mounted: function mounted() {
+    //获取图片前缀
+    var param = JSON.parse(window.localStorage.getItem("param"));
+    this.imagePath = param.imagePathPrefix;
+    var rootAdminInfo = JSON.parse(Object(utils["a" /* Decrypt */])(window.sessionStorage.getItem("rootAdminInfo")));
+    this.role = rootAdminInfo.role;
+    this.level = rootAdminInfo.level;
+  }
+});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-3b7b3c81","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/dataManagement/consultant.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"consultant"},[_c('div',{staticClass:"tree-list"},[_c('p',[_vm._v("案场列表：")]),_vm._v(" "),_c('el-tree',{ref:"tree2",staticClass:"filter-tree",attrs:{"empty-text":"暂无数据","data":_vm.data2,"props":_vm.defaultProps,"expand-on-click-node":false,"default-expand-all":"","highlight-current":"","node-key":"fid"},on:{"node-click":_vm.clickNode}})],1),_vm._v(" "),_c('div',{staticClass:"dataListForm"},[_vm._m(0),_vm._v(" "),(_vm.level<=0)?_c('div',{staticStyle:{"margin-top":"20px"}},[_c('el-button-group',[_c('el-button',{attrs:{"type":_vm.status==1?'info':'',"title":"在建ID"},on:{"click":function($event){return _vm.changeStatus(1)}}},[_vm._v("在建ID")]),_vm._v(" "),_c('el-button',{attrs:{"type":_vm.status==0?'info':'',"title":"回收站"},on:{"click":function($event){return _vm.changeStatus(0)}}},[_vm._v("回收站")])],1)],1):_vm._e(),_vm._v(" "),_c('div',{staticStyle:{"margin-top":"20px"}},[(_vm.role!=0 && _vm.status ==1)?_c('el-button',{attrs:{"type":"danger","size":"small","icon":"el-icon-delete","title":"批量删除"},on:{"click":function($event){return _vm.handleDelete(-1)}}},[_vm._v("批量删除")]):_vm._e(),_vm._v(" "),(_vm.role!=0)?_c('el-button',{staticStyle:{"margin-left":"0"},attrs:{"type":"success","size":"small","icon":"el-icon-upload2","title":"批量导入"},on:{"click":_vm.openUpload}},[_vm._v("批量导入")]):_vm._e(),_vm._v(" "),_c('el-button',{attrs:{"size":"small","icon":"el-icon-refresh"},on:{"click":_vm.flowUserReset}},[_vm._v("刷新")])],1),_vm._v(" "),_c('ul',{staticClass:"consultant-serch",staticStyle:{"float":"left"}},[_c('li',{staticClass:"time"},[_c('el-select',{staticStyle:{"width":"120px"},attrs:{"placeholder":"时间类型"},on:{"change":_vm.timeChange},model:{value:(_vm.selectTimeCondition),callback:function ($$v) {_vm.selectTimeCondition=$$v},expression:"selectTimeCondition"}},_vm._l((_vm.serchTimeOptions),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.label,"value":item.value}})}),1),_vm._v(" "),_c('el-date-picker',{attrs:{"popper-class":"dateSelect","type":"daterange","range-separator":"至","start-placeholder":"开始日期","end-placeholder":"结束日期","picker-options":_vm.pickerOptions},on:{"change":_vm.timeChange},model:{value:(_vm.date),callback:function ($$v) {_vm.date=$$v},expression:"date"}})],1)]),_vm._v(" "),_c('ul',{staticClass:"consultant-serch",staticStyle:{"float":"left","margin-left":"110px"}},[_c('li',[_c('el-select',{staticStyle:{"width":"140px"},attrs:{"placeholder":"选择访问次数"},on:{"change":_vm.serchChange},model:{value:(_vm.timesSelect),callback:function ($$v) {_vm.timesSelect=$$v},expression:"timesSelect"}},_vm._l((_vm.timesOptions),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.label,"value":item.value}})}),1)],1),_vm._v(" "),_c('li',[_c('el-select',{staticStyle:{"width":"120px"},attrs:{"placeholder":"选择年龄"},on:{"change":_vm.serchChange},model:{value:(_vm.ageSelect),callback:function ($$v) {_vm.ageSelect=$$v},expression:"ageSelect"}},_vm._l((_vm.ageOptions),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.label,"value":item.value}})}),1)],1),_vm._v(" "),_c('li',{staticClass:"keyword"},[_c('el-select',{staticStyle:{"width":"120px"},attrs:{"placeholder":"选择关键词"},model:{value:(_vm.selectCondition),callback:function ($$v) {_vm.selectCondition=$$v},expression:"selectCondition"}},_vm._l((_vm.serchOptions),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.label,"value":item.value}})}),1),_vm._v(" "),_c('el-input',{attrs:{"placeholder":"请输入搜索内容"},model:{value:(_vm.flowUsername),callback:function ($$v) {_vm.flowUsername=$$v},expression:"flowUsername"}})],1)]),_vm._v(" "),_c('ul',{staticClass:"consultant-serch",staticStyle:{"clear":"both"}},[_c('li',[_c('el-radio-group',{attrs:{"size":"medium"},on:{"change":_vm.serchChange},model:{value:(_vm.gender),callback:function ($$v) {_vm.gender=$$v},expression:"gender"}},[_c('el-radio-button',{attrs:{"label":"0"}},[_vm._v("男")]),_vm._v(" "),_c('el-radio-button',{attrs:{"label":"1"}},[_vm._v("女")])],1)],1),_vm._v(" "),_c('li',{staticClass:"operation"},[_c('el-button',{staticStyle:{"margin-left":"10px"},attrs:{"type":"success","size":"small"},on:{"click":_vm.flowUserSel}},[_vm._v("查询")]),_vm._v(" "),_c('el-button',{attrs:{"type":"warning","size":"small"},on:{"click":_vm.flowUserReset}},[_vm._v("重置")])],1)]),_vm._v(" "),_c('div',{staticClass:"consultantForm"},[_c('el-row',[_c('el-table',{directives:[{name:"loading",rawName:"v-loading",value:(_vm.loading),expression:"loading"}],staticStyle:{"width":"100%"},attrs:{"data":_vm.flowManagementTable,"border":"","empty-text":_vm.haveData,"element-loading-text":"正在搜索","element-loading-spinner":"el-icon-loading","element-loading-background":"rgba(0, 0, 0, 0.8)"},on:{"selection-change":_vm.handleSelectionChange}},[_c('el-table-column',{attrs:{"type":"selection","width":"55"}}),_vm._v(" "),_c('el-table-column',{attrs:{"label":"序号","width":"60"},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.index))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"gender","label":"性别","width":"60"},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.gender==0?"男":"女"))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"realAge","label":"年龄"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_vm._v(_vm._s(_vm.ageType[scope.$index] || "暂无数据"))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"type","label":"人员类型","show-overflow-tooltip":""},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.type==0?"顾问":(row.type==1?"访客":"工作人员")))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"createTime","label":"首次来访时间","width":"100"},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.createTime||"暂无数据"))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"lastVisitTime","label":"上次来访时间","width":"100"},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.lastVisitTime||"暂无数据"))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"recVisitTime","label":"最近来访时间","width":"100"},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.recVisitTime||"暂无数据"))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"visitNum","width":"60","label":"来访次数","show-overflow-tooltip":""},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.visitNum?row.visitNum+"次":"暂无数据"))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"realName","label":"姓名","show-overflow-tooltip":""},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.realName||"暂无数据"))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"realName","label":"组别","show-overflow-tooltip":""},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.advisorGroupLabels ||"暂无数据"))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"phone","label":"联系方式","show-overflow-tooltip":""},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.phone||"暂无数据"))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"imageUrl","label":"底库图片"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [(!(scope.row.imageName))?_c('span',[_vm._v("暂无图片")]):_vm._e(),_vm._v(" "),(scope.row.imageName)?_c('el-popover',{attrs:{"placement":"left","title":"","trigger":"hover"}},[_c('img',{staticClass:"head_pic",attrs:{"src":_vm.imagePath+scope.row.imageName,"height":"350px"}}),_vm._v(" "),_c('img',{staticClass:"conImg",attrs:{"slot":"reference","src":_vm.imagePath+scope.row.imageName},slot:"reference"})]):_vm._e()]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"id","label":"ID","show-overflow-tooltip":"","width":"80"},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.id||"暂无数据"))]}}])}),_vm._v(" "),(_vm.role!=0 && _vm.status == 1)?_c('el-table-column',{attrs:{"prop":"operation","label":"操作","width":"150"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_c('el-button',{attrs:{"size":"mini"},on:{"click":function($event){return _vm.handleEdit(scope.$index, scope.row)}}},[_vm._v("编辑")]),_vm._v(" "),_c('el-button',{attrs:{"size":"mini","type":"danger"},on:{"click":function($event){return _vm.handleDelete(scope.$index, scope.row)}}},[_vm._v("删除")])]}}],null,false,268720131)}):_vm._e()],1)],1)],1),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.flowUsertotel!=0),expression:"flowUsertotel!=0"}],staticClass:"consultant-page"},[_c('el-pagination',{attrs:{"total":_vm.flowUsertotel,"current-page":_vm.flowUsercurrentPage,"page-sizes":[10,20,50,100,200],"page-size":_vm.flowUserPageSize,"layout":"total, sizes, prev, pager, next, jumper"},on:{"size-change":_vm.handleSizeChange,"current-change":_vm.directHandleCurrentChange}})],1),_vm._v(" "),_c('el-dialog',{attrs:{"title":"修改数据","before-close":_vm.closeUpdataFromRequire,"visible":_vm.dialogFormVisible,"width":"40%","top":"5vh","close-on-click-modal":false},on:{"update:visible":function($event){_vm.dialogFormVisible=$event}}},[_c('el-form',{ref:"activeRow",staticClass:"demo-ruleForm",attrs:{"model":_vm.Updataform,"label-width":"100px"}},[_c('el-form-item',{attrs:{"label":"姓名","prop":"realName"}},[_c('el-input',{model:{value:(_vm.Updataform.realName),callback:function ($$v) {_vm.$set(_vm.Updataform, "realName", $$v)},expression:"Updataform.realName"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"性别","prop":"gender"}},[_c('el-radio',{attrs:{"label":"0"},model:{value:(_vm.Updataform.gender),callback:function ($$v) {_vm.$set(_vm.Updataform, "gender", $$v)},expression:"Updataform.gender"}},[_vm._v("男")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"1"},model:{value:(_vm.Updataform.gender),callback:function ($$v) {_vm.$set(_vm.Updataform, "gender", $$v)},expression:"Updataform.gender"}},[_vm._v("女")])],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"年龄","prop":"age"}},[_c('el-select',{attrs:{"placeholder":"选择年龄"},model:{value:(_vm.Updataform.age),callback:function ($$v) {_vm.$set(_vm.Updataform, "age", $$v)},expression:"Updataform.age"}},_vm._l((_vm.ageOptions),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.label,"value":item.value}})}),1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"联系方式","prop":"phone"}},[_c('el-input',{model:{value:(_vm.Updataform.phone),callback:function ($$v) {_vm.$set(_vm.Updataform, "phone", $$v)},expression:"Updataform.phone"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"类型","prop":"type"}},[_c('el-radio',{attrs:{"label":"0"},model:{value:(_vm.Updataform.type),callback:function ($$v) {_vm.$set(_vm.Updataform, "type", $$v)},expression:"Updataform.type"}},[_vm._v("顾问")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"1"},model:{value:(_vm.Updataform.type),callback:function ($$v) {_vm.$set(_vm.Updataform, "type", $$v)},expression:"Updataform.type"}},[_vm._v("访客")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"-1"},model:{value:(_vm.Updataform.type),callback:function ($$v) {_vm.$set(_vm.Updataform, "type", $$v)},expression:"Updataform.type"}},[_vm._v("工作人员")])],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"备注","prop":"remark"}},[_c('el-input',{model:{value:(_vm.Updataform.remark),callback:function ($$v) {_vm.$set(_vm.Updataform, "remark", $$v)},expression:"Updataform.remark"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"照片"}},[_c('img',{staticStyle:{"width":"150px"},attrs:{"src":_vm.Updataform.imgurl,"alt":""}})])],1),_vm._v(" "),_c('div',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button-group',{staticStyle:{"float":"left"}},[_c('el-button',{attrs:{"size":"small","icon":"el-icon-arrow-left"},on:{"click":_vm.prev}},[_vm._v("上一条")]),_vm._v(" "),_c('el-button',{attrs:{"size":"small"},on:{"click":_vm.next}},[_vm._v("\n            下一条\n            "),_c('i',{staticClass:"el-icon-arrow-right el-icon--right"})])],1),_vm._v(" "),_c('el-button',{on:{"click":_vm.closeUpdataFromRequire}},[_vm._v("取 消")]),_vm._v(" "),_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){return _vm.updataFromRequire('activeRow')}}},[_vm._v("确 定")])],1)],1),_vm._v(" "),_c('el-dialog',{attrs:{"title":"批量导入","visible":_vm.dialogUpload,"before-close":_vm.closeUpload,"width":"40%","top":"5vh","close-on-click-modal":false},on:{"update:visible":function($event){_vm.dialogUpload=$event}}},[_c('p',{staticStyle:{"margin-top":"0","color":"#767676"}},[_vm._v("系统将按图片名作为唯一标记，并自动设置为顾问/工作人员的姓名与联系方式，请确保图片名的唯一性与规范性。")]),_vm._v(" "),_c('div',{staticStyle:{"margin-bottom":"20px"}},[_c('el-radio',{staticStyle:{"margin-right":"0"},attrs:{"size":"small","border":"","label":"0"},model:{value:(_vm.imgType),callback:function ($$v) {_vm.imgType=$$v},expression:"imgType"}},[_vm._v("顾 问")]),_vm._v(" "),_c('el-radio',{attrs:{"size":"small","border":"","label":"-1"},model:{value:(_vm.imgType),callback:function ($$v) {_vm.imgType=$$v},expression:"imgType"}},[_vm._v("工作人员")]),_vm._v(" "),_c('span',[_c('span',{staticStyle:{"color":"red"}},[_vm._v("* ")]),_vm._v("组别：")]),_vm._v(" "),_c('el-select',{staticStyle:{"width":"30%"},attrs:{"size":"small","filterable":"","allow-create":"","default-first-option":"","placeholder":"请选择或填写组别"},model:{value:(_vm.group),callback:function ($$v) {_vm.group=$$v},expression:"group"}},_vm._l((_vm.groupOptions),function(item){return _c('el-option',{key:item.advisorGroupLabels,attrs:{"label":item.advisorGroupLabels,"value":item.advisorGroupLabels}})}),1)],1),_vm._v(" "),_c('p',[_vm._v("示例：")]),_vm._v(" "),_c('div',{staticClass:"img-ex"},[_c('img',{attrs:{"src":__webpack_require__("Jks+"),"alt":""}}),_vm._v(" "),_c('p',[_vm._v("姓名—电话.jpg/png")])]),_vm._v(" "),_c('el-upload',{attrs:{"action":"","auto-upload":false,"list-type":"picture-card","on-preview":_vm.handlePreview,"on-remove":_vm.handleRemove,"on-change":_vm.imageChange,"file-list":_vm.fileList,"limit":20,"multiple":true}},[_c('i',{staticClass:"el-icon-plus"})]),_vm._v(" "),_c('el-dialog',{attrs:{"visible":_vm.dialogVisible,"append-to-body":""},on:{"update:visible":function($event){_vm.dialogVisible=$event}}},[_c('img',{attrs:{"width":"100%","src":_vm.dialogImageUrl,"alt":""}})]),_vm._v(" "),_c('div',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{on:{"click":_vm.closeUpload}},[_vm._v("取 消")]),_vm._v(" "),_c('el-button',{attrs:{"type":"primary","loading":_vm.uploadLoading},on:{"click":_vm.Upload}},[_vm._v("确 定")])],1)],1)],1)])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"consultant-title el-row"},[_c('span',{staticClass:"consultant-title_liner"}),_vm._v(" "),_c('span',{staticClass:"consultant-title_text"},[_vm._v("数据管理")]),_vm._v(" "),_c('span',{staticClass:"consultant-direction"},[_vm._v(">")]),_vm._v(" "),_c('span',{staticClass:"consultant-title_text"},[_vm._v("顾问信息")])])}]
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ var dataManagement_consultant = (esExports);
+// CONCATENATED MODULE: ./src/components/dataManagement/consultant.vue
+function injectStyle (ssrContext) {
+  __webpack_require__("IF3o")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-3b7b3c81"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  consultant,
+  dataManagement_consultant,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ var components_dataManagement_consultant = __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "sbrb":
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function() {
+
+    var debug = false;
+
+    var root = this;
+
+    var EXIF = function(obj) {
+        if (obj instanceof EXIF) return obj;
+        if (!(this instanceof EXIF)) return new EXIF(obj);
+        this.EXIFwrapped = obj;
+    };
+
+    if (true) {
+        if (typeof module !== 'undefined' && module.exports) {
+            exports = module.exports = EXIF;
+        }
+        exports.EXIF = EXIF;
+    } else {
+        root.EXIF = EXIF;
+    }
+
+    var ExifTags = EXIF.Tags = {
+
+        // version tags
+        0x9000 : "ExifVersion",             // EXIF version
+        0xA000 : "FlashpixVersion",         // Flashpix format version
+
+        // colorspace tags
+        0xA001 : "ColorSpace",              // Color space information tag
+
+        // image configuration
+        0xA002 : "PixelXDimension",         // Valid width of meaningful image
+        0xA003 : "PixelYDimension",         // Valid height of meaningful image
+        0x9101 : "ComponentsConfiguration", // Information about channels
+        0x9102 : "CompressedBitsPerPixel",  // Compressed bits per pixel
+
+        // user information
+        0x927C : "MakerNote",               // Any desired information written by the manufacturer
+        0x9286 : "UserComment",             // Comments by user
+
+        // related file
+        0xA004 : "RelatedSoundFile",        // Name of related sound file
+
+        // date and time
+        0x9003 : "DateTimeOriginal",        // Date and time when the original image was generated
+        0x9004 : "DateTimeDigitized",       // Date and time when the image was stored digitally
+        0x9290 : "SubsecTime",              // Fractions of seconds for DateTime
+        0x9291 : "SubsecTimeOriginal",      // Fractions of seconds for DateTimeOriginal
+        0x9292 : "SubsecTimeDigitized",     // Fractions of seconds for DateTimeDigitized
+
+        // picture-taking conditions
+        0x829A : "ExposureTime",            // Exposure time (in seconds)
+        0x829D : "FNumber",                 // F number
+        0x8822 : "ExposureProgram",         // Exposure program
+        0x8824 : "SpectralSensitivity",     // Spectral sensitivity
+        0x8827 : "ISOSpeedRatings",         // ISO speed rating
+        0x8828 : "OECF",                    // Optoelectric conversion factor
+        0x9201 : "ShutterSpeedValue",       // Shutter speed
+        0x9202 : "ApertureValue",           // Lens aperture
+        0x9203 : "BrightnessValue",         // Value of brightness
+        0x9204 : "ExposureBias",            // Exposure bias
+        0x9205 : "MaxApertureValue",        // Smallest F number of lens
+        0x9206 : "SubjectDistance",         // Distance to subject in meters
+        0x9207 : "MeteringMode",            // Metering mode
+        0x9208 : "LightSource",             // Kind of light source
+        0x9209 : "Flash",                   // Flash status
+        0x9214 : "SubjectArea",             // Location and area of main subject
+        0x920A : "FocalLength",             // Focal length of the lens in mm
+        0xA20B : "FlashEnergy",             // Strobe energy in BCPS
+        0xA20C : "SpatialFrequencyResponse",    //
+        0xA20E : "FocalPlaneXResolution",   // Number of pixels in width direction per FocalPlaneResolutionUnit
+        0xA20F : "FocalPlaneYResolution",   // Number of pixels in height direction per FocalPlaneResolutionUnit
+        0xA210 : "FocalPlaneResolutionUnit",    // Unit for measuring FocalPlaneXResolution and FocalPlaneYResolution
+        0xA214 : "SubjectLocation",         // Location of subject in image
+        0xA215 : "ExposureIndex",           // Exposure index selected on camera
+        0xA217 : "SensingMethod",           // Image sensor type
+        0xA300 : "FileSource",              // Image source (3 == DSC)
+        0xA301 : "SceneType",               // Scene type (1 == directly photographed)
+        0xA302 : "CFAPattern",              // Color filter array geometric pattern
+        0xA401 : "CustomRendered",          // Special processing
+        0xA402 : "ExposureMode",            // Exposure mode
+        0xA403 : "WhiteBalance",            // 1 = auto white balance, 2 = manual
+        0xA404 : "DigitalZoomRation",       // Digital zoom ratio
+        0xA405 : "FocalLengthIn35mmFilm",   // Equivalent foacl length assuming 35mm film camera (in mm)
+        0xA406 : "SceneCaptureType",        // Type of scene
+        0xA407 : "GainControl",             // Degree of overall image gain adjustment
+        0xA408 : "Contrast",                // Direction of contrast processing applied by camera
+        0xA409 : "Saturation",              // Direction of saturation processing applied by camera
+        0xA40A : "Sharpness",               // Direction of sharpness processing applied by camera
+        0xA40B : "DeviceSettingDescription",    //
+        0xA40C : "SubjectDistanceRange",    // Distance to subject
+
+        // other tags
+        0xA005 : "InteroperabilityIFDPointer",
+        0xA420 : "ImageUniqueID"            // Identifier assigned uniquely to each image
+    };
+
+    var TiffTags = EXIF.TiffTags = {
+        0x0100 : "ImageWidth",
+        0x0101 : "ImageHeight",
+        0x8769 : "ExifIFDPointer",
+        0x8825 : "GPSInfoIFDPointer",
+        0xA005 : "InteroperabilityIFDPointer",
+        0x0102 : "BitsPerSample",
+        0x0103 : "Compression",
+        0x0106 : "PhotometricInterpretation",
+        0x0112 : "Orientation",
+        0x0115 : "SamplesPerPixel",
+        0x011C : "PlanarConfiguration",
+        0x0212 : "YCbCrSubSampling",
+        0x0213 : "YCbCrPositioning",
+        0x011A : "XResolution",
+        0x011B : "YResolution",
+        0x0128 : "ResolutionUnit",
+        0x0111 : "StripOffsets",
+        0x0116 : "RowsPerStrip",
+        0x0117 : "StripByteCounts",
+        0x0201 : "JPEGInterchangeFormat",
+        0x0202 : "JPEGInterchangeFormatLength",
+        0x012D : "TransferFunction",
+        0x013E : "WhitePoint",
+        0x013F : "PrimaryChromaticities",
+        0x0211 : "YCbCrCoefficients",
+        0x0214 : "ReferenceBlackWhite",
+        0x0132 : "DateTime",
+        0x010E : "ImageDescription",
+        0x010F : "Make",
+        0x0110 : "Model",
+        0x0131 : "Software",
+        0x013B : "Artist",
+        0x8298 : "Copyright"
+    };
+
+    var GPSTags = EXIF.GPSTags = {
+        0x0000 : "GPSVersionID",
+        0x0001 : "GPSLatitudeRef",
+        0x0002 : "GPSLatitude",
+        0x0003 : "GPSLongitudeRef",
+        0x0004 : "GPSLongitude",
+        0x0005 : "GPSAltitudeRef",
+        0x0006 : "GPSAltitude",
+        0x0007 : "GPSTimeStamp",
+        0x0008 : "GPSSatellites",
+        0x0009 : "GPSStatus",
+        0x000A : "GPSMeasureMode",
+        0x000B : "GPSDOP",
+        0x000C : "GPSSpeedRef",
+        0x000D : "GPSSpeed",
+        0x000E : "GPSTrackRef",
+        0x000F : "GPSTrack",
+        0x0010 : "GPSImgDirectionRef",
+        0x0011 : "GPSImgDirection",
+        0x0012 : "GPSMapDatum",
+        0x0013 : "GPSDestLatitudeRef",
+        0x0014 : "GPSDestLatitude",
+        0x0015 : "GPSDestLongitudeRef",
+        0x0016 : "GPSDestLongitude",
+        0x0017 : "GPSDestBearingRef",
+        0x0018 : "GPSDestBearing",
+        0x0019 : "GPSDestDistanceRef",
+        0x001A : "GPSDestDistance",
+        0x001B : "GPSProcessingMethod",
+        0x001C : "GPSAreaInformation",
+        0x001D : "GPSDateStamp",
+        0x001E : "GPSDifferential"
+    };
+
+     // EXIF 2.3 Spec
+    var IFD1Tags = EXIF.IFD1Tags = {
+        0x0100: "ImageWidth",
+        0x0101: "ImageHeight",
+        0x0102: "BitsPerSample",
+        0x0103: "Compression",
+        0x0106: "PhotometricInterpretation",
+        0x0111: "StripOffsets",
+        0x0112: "Orientation",
+        0x0115: "SamplesPerPixel",
+        0x0116: "RowsPerStrip",
+        0x0117: "StripByteCounts",
+        0x011A: "XResolution",
+        0x011B: "YResolution",
+        0x011C: "PlanarConfiguration",
+        0x0128: "ResolutionUnit",
+        0x0201: "JpegIFOffset",    // When image format is JPEG, this value show offset to JPEG data stored.(aka "ThumbnailOffset" or "JPEGInterchangeFormat")
+        0x0202: "JpegIFByteCount", // When image format is JPEG, this value shows data size of JPEG image (aka "ThumbnailLength" or "JPEGInterchangeFormatLength")
+        0x0211: "YCbCrCoefficients",
+        0x0212: "YCbCrSubSampling",
+        0x0213: "YCbCrPositioning",
+        0x0214: "ReferenceBlackWhite"
+    };
+
+    var StringValues = EXIF.StringValues = {
+        ExposureProgram : {
+            0 : "Not defined",
+            1 : "Manual",
+            2 : "Normal program",
+            3 : "Aperture priority",
+            4 : "Shutter priority",
+            5 : "Creative program",
+            6 : "Action program",
+            7 : "Portrait mode",
+            8 : "Landscape mode"
+        },
+        MeteringMode : {
+            0 : "Unknown",
+            1 : "Average",
+            2 : "CenterWeightedAverage",
+            3 : "Spot",
+            4 : "MultiSpot",
+            5 : "Pattern",
+            6 : "Partial",
+            255 : "Other"
+        },
+        LightSource : {
+            0 : "Unknown",
+            1 : "Daylight",
+            2 : "Fluorescent",
+            3 : "Tungsten (incandescent light)",
+            4 : "Flash",
+            9 : "Fine weather",
+            10 : "Cloudy weather",
+            11 : "Shade",
+            12 : "Daylight fluorescent (D 5700 - 7100K)",
+            13 : "Day white fluorescent (N 4600 - 5400K)",
+            14 : "Cool white fluorescent (W 3900 - 4500K)",
+            15 : "White fluorescent (WW 3200 - 3700K)",
+            17 : "Standard light A",
+            18 : "Standard light B",
+            19 : "Standard light C",
+            20 : "D55",
+            21 : "D65",
+            22 : "D75",
+            23 : "D50",
+            24 : "ISO studio tungsten",
+            255 : "Other"
+        },
+        Flash : {
+            0x0000 : "Flash did not fire",
+            0x0001 : "Flash fired",
+            0x0005 : "Strobe return light not detected",
+            0x0007 : "Strobe return light detected",
+            0x0009 : "Flash fired, compulsory flash mode",
+            0x000D : "Flash fired, compulsory flash mode, return light not detected",
+            0x000F : "Flash fired, compulsory flash mode, return light detected",
+            0x0010 : "Flash did not fire, compulsory flash mode",
+            0x0018 : "Flash did not fire, auto mode",
+            0x0019 : "Flash fired, auto mode",
+            0x001D : "Flash fired, auto mode, return light not detected",
+            0x001F : "Flash fired, auto mode, return light detected",
+            0x0020 : "No flash function",
+            0x0041 : "Flash fired, red-eye reduction mode",
+            0x0045 : "Flash fired, red-eye reduction mode, return light not detected",
+            0x0047 : "Flash fired, red-eye reduction mode, return light detected",
+            0x0049 : "Flash fired, compulsory flash mode, red-eye reduction mode",
+            0x004D : "Flash fired, compulsory flash mode, red-eye reduction mode, return light not detected",
+            0x004F : "Flash fired, compulsory flash mode, red-eye reduction mode, return light detected",
+            0x0059 : "Flash fired, auto mode, red-eye reduction mode",
+            0x005D : "Flash fired, auto mode, return light not detected, red-eye reduction mode",
+            0x005F : "Flash fired, auto mode, return light detected, red-eye reduction mode"
+        },
+        SensingMethod : {
+            1 : "Not defined",
+            2 : "One-chip color area sensor",
+            3 : "Two-chip color area sensor",
+            4 : "Three-chip color area sensor",
+            5 : "Color sequential area sensor",
+            7 : "Trilinear sensor",
+            8 : "Color sequential linear sensor"
+        },
+        SceneCaptureType : {
+            0 : "Standard",
+            1 : "Landscape",
+            2 : "Portrait",
+            3 : "Night scene"
+        },
+        SceneType : {
+            1 : "Directly photographed"
+        },
+        CustomRendered : {
+            0 : "Normal process",
+            1 : "Custom process"
+        },
+        WhiteBalance : {
+            0 : "Auto white balance",
+            1 : "Manual white balance"
+        },
+        GainControl : {
+            0 : "None",
+            1 : "Low gain up",
+            2 : "High gain up",
+            3 : "Low gain down",
+            4 : "High gain down"
+        },
+        Contrast : {
+            0 : "Normal",
+            1 : "Soft",
+            2 : "Hard"
+        },
+        Saturation : {
+            0 : "Normal",
+            1 : "Low saturation",
+            2 : "High saturation"
+        },
+        Sharpness : {
+            0 : "Normal",
+            1 : "Soft",
+            2 : "Hard"
+        },
+        SubjectDistanceRange : {
+            0 : "Unknown",
+            1 : "Macro",
+            2 : "Close view",
+            3 : "Distant view"
+        },
+        FileSource : {
+            3 : "DSC"
+        },
+
+        Components : {
+            0 : "",
+            1 : "Y",
+            2 : "Cb",
+            3 : "Cr",
+            4 : "R",
+            5 : "G",
+            6 : "B"
+        }
+    };
+
+    function addEvent(element, event, handler) {
+        if (element.addEventListener) {
+            element.addEventListener(event, handler, false);
+        } else if (element.attachEvent) {
+            element.attachEvent("on" + event, handler);
+        }
+    }
+
+    function imageHasData(img) {
+        return !!(img.exifdata);
+    }
+
+
+    function base64ToArrayBuffer(base64, contentType) {
+        contentType = contentType || base64.match(/^data\:([^\;]+)\;base64,/mi)[1] || ''; // e.g. 'data:image/jpeg;base64,...' => 'image/jpeg'
+        base64 = base64.replace(/^data\:([^\;]+)\;base64,/gmi, '');
+        var binary = atob(base64);
+        var len = binary.length;
+        var buffer = new ArrayBuffer(len);
+        var view = new Uint8Array(buffer);
+        for (var i = 0; i < len; i++) {
+            view[i] = binary.charCodeAt(i);
+        }
+        return buffer;
+    }
+
+    function objectURLToBlob(url, callback) {
+        var http = new XMLHttpRequest();
+        http.open("GET", url, true);
+        http.responseType = "blob";
+        http.onload = function(e) {
+            if (this.status == 200 || this.status === 0) {
+                callback(this.response);
+            }
+        };
+        http.send();
+    }
+
+    function getImageData(img, callback) {
+        function handleBinaryFile(binFile) {
+            var data = findEXIFinJPEG(binFile);
+            img.exifdata = data || {};
+            var iptcdata = findIPTCinJPEG(binFile);
+            img.iptcdata = iptcdata || {};
+            if (EXIF.isXmpEnabled) {
+               var xmpdata= findXMPinJPEG(binFile);
+               img.xmpdata = xmpdata || {};               
+            }
+            if (callback) {
+                callback.call(img);
+            }
+        }
+
+        if (img.src) {
+            if (/^data\:/i.test(img.src)) { // Data URI
+                var arrayBuffer = base64ToArrayBuffer(img.src);
+                handleBinaryFile(arrayBuffer);
+
+            } else if (/^blob\:/i.test(img.src)) { // Object URL
+                var fileReader = new FileReader();
+                fileReader.onload = function(e) {
+                    handleBinaryFile(e.target.result);
+                };
+                objectURLToBlob(img.src, function (blob) {
+                    fileReader.readAsArrayBuffer(blob);
+                });
+            } else {
+                var http = new XMLHttpRequest();
+                http.onload = function() {
+                    if (this.status == 200 || this.status === 0) {
+                        handleBinaryFile(http.response);
+                    } else {
+                        throw "Could not load image";
+                    }
+                    http = null;
+                };
+                http.open("GET", img.src, true);
+                http.responseType = "arraybuffer";
+                http.send(null);
+            }
+        } else if (self.FileReader && (img instanceof self.Blob || img instanceof self.File)) {
+            var fileReader = new FileReader();
+            fileReader.onload = function(e) {
+                if (debug) console.log("Got file of length " + e.target.result.byteLength);
+                handleBinaryFile(e.target.result);
+            };
+
+            fileReader.readAsArrayBuffer(img);
+        }
+    }
+
+    function findEXIFinJPEG(file) {
+        var dataView = new DataView(file);
+
+        if (debug) console.log("Got file of length " + file.byteLength);
+        if ((dataView.getUint8(0) != 0xFF) || (dataView.getUint8(1) != 0xD8)) {
+            if (debug) console.log("Not a valid JPEG");
+            return false; // not a valid jpeg
+        }
+
+        var offset = 2,
+            length = file.byteLength,
+            marker;
+
+        while (offset < length) {
+            if (dataView.getUint8(offset) != 0xFF) {
+                if (debug) console.log("Not a valid marker at offset " + offset + ", found: " + dataView.getUint8(offset));
+                return false; // not a valid marker, something is wrong
+            }
+
+            marker = dataView.getUint8(offset + 1);
+            if (debug) console.log(marker);
+
+            // we could implement handling for other markers here,
+            // but we're only looking for 0xFFE1 for EXIF data
+
+            if (marker == 225) {
+                if (debug) console.log("Found 0xFFE1 marker");
+
+                return readEXIFData(dataView, offset + 4, dataView.getUint16(offset + 2) - 2);
+
+                // offset += 2 + file.getShortAt(offset+2, true);
+
+            } else {
+                offset += 2 + dataView.getUint16(offset+2);
+            }
+
+        }
+
+    }
+
+    function findIPTCinJPEG(file) {
+        var dataView = new DataView(file);
+
+        if (debug) console.log("Got file of length " + file.byteLength);
+        if ((dataView.getUint8(0) != 0xFF) || (dataView.getUint8(1) != 0xD8)) {
+            if (debug) console.log("Not a valid JPEG");
+            return false; // not a valid jpeg
+        }
+
+        var offset = 2,
+            length = file.byteLength;
+
+
+        var isFieldSegmentStart = function(dataView, offset){
+            return (
+                dataView.getUint8(offset) === 0x38 &&
+                dataView.getUint8(offset+1) === 0x42 &&
+                dataView.getUint8(offset+2) === 0x49 &&
+                dataView.getUint8(offset+3) === 0x4D &&
+                dataView.getUint8(offset+4) === 0x04 &&
+                dataView.getUint8(offset+5) === 0x04
+            );
+        };
+
+        while (offset < length) {
+
+            if ( isFieldSegmentStart(dataView, offset )){
+
+                // Get the length of the name header (which is padded to an even number of bytes)
+                var nameHeaderLength = dataView.getUint8(offset+7);
+                if(nameHeaderLength % 2 !== 0) nameHeaderLength += 1;
+                // Check for pre photoshop 6 format
+                if(nameHeaderLength === 0) {
+                    // Always 4
+                    nameHeaderLength = 4;
+                }
+
+                var startOffset = offset + 8 + nameHeaderLength;
+                var sectionLength = dataView.getUint16(offset + 6 + nameHeaderLength);
+
+                return readIPTCData(file, startOffset, sectionLength);
+
+                break;
+
+            }
+
+
+            // Not the marker, continue searching
+            offset++;
+
+        }
+
+    }
+    var IptcFieldMap = {
+        0x78 : 'caption',
+        0x6E : 'credit',
+        0x19 : 'keywords',
+        0x37 : 'dateCreated',
+        0x50 : 'byline',
+        0x55 : 'bylineTitle',
+        0x7A : 'captionWriter',
+        0x69 : 'headline',
+        0x74 : 'copyright',
+        0x0F : 'category'
+    };
+    function readIPTCData(file, startOffset, sectionLength){
+        var dataView = new DataView(file);
+        var data = {};
+        var fieldValue, fieldName, dataSize, segmentType, segmentSize;
+        var segmentStartPos = startOffset;
+        while(segmentStartPos < startOffset+sectionLength) {
+            if(dataView.getUint8(segmentStartPos) === 0x1C && dataView.getUint8(segmentStartPos+1) === 0x02){
+                segmentType = dataView.getUint8(segmentStartPos+2);
+                if(segmentType in IptcFieldMap) {
+                    dataSize = dataView.getInt16(segmentStartPos+3);
+                    segmentSize = dataSize + 5;
+                    fieldName = IptcFieldMap[segmentType];
+                    fieldValue = getStringFromDB(dataView, segmentStartPos+5, dataSize);
+                    // Check if we already stored a value with this name
+                    if(data.hasOwnProperty(fieldName)) {
+                        // Value already stored with this name, create multivalue field
+                        if(data[fieldName] instanceof Array) {
+                            data[fieldName].push(fieldValue);
+                        }
+                        else {
+                            data[fieldName] = [data[fieldName], fieldValue];
+                        }
+                    }
+                    else {
+                        data[fieldName] = fieldValue;
+                    }
+                }
+
+            }
+            segmentStartPos++;
+        }
+        return data;
+    }
+
+
+
+    function readTags(file, tiffStart, dirStart, strings, bigEnd) {
+        var entries = file.getUint16(dirStart, !bigEnd),
+            tags = {},
+            entryOffset, tag,
+            i;
+
+        for (i=0;i<entries;i++) {
+            entryOffset = dirStart + i*12 + 2;
+            tag = strings[file.getUint16(entryOffset, !bigEnd)];
+            if (!tag && debug) console.log("Unknown tag: " + file.getUint16(entryOffset, !bigEnd));
+            tags[tag] = readTagValue(file, entryOffset, tiffStart, dirStart, bigEnd);
+        }
+        return tags;
+    }
+
+
+    function readTagValue(file, entryOffset, tiffStart, dirStart, bigEnd) {
+        var type = file.getUint16(entryOffset+2, !bigEnd),
+            numValues = file.getUint32(entryOffset+4, !bigEnd),
+            valueOffset = file.getUint32(entryOffset+8, !bigEnd) + tiffStart,
+            offset,
+            vals, val, n,
+            numerator, denominator;
+
+        switch (type) {
+            case 1: // byte, 8-bit unsigned int
+            case 7: // undefined, 8-bit byte, value depending on field
+                if (numValues == 1) {
+                    return file.getUint8(entryOffset + 8, !bigEnd);
+                } else {
+                    offset = numValues > 4 ? valueOffset : (entryOffset + 8);
+                    vals = [];
+                    for (n=0;n<numValues;n++) {
+                        vals[n] = file.getUint8(offset + n);
+                    }
+                    return vals;
+                }
+
+            case 2: // ascii, 8-bit byte
+                offset = numValues > 4 ? valueOffset : (entryOffset + 8);
+                return getStringFromDB(file, offset, numValues-1);
+
+            case 3: // short, 16 bit int
+                if (numValues == 1) {
+                    return file.getUint16(entryOffset + 8, !bigEnd);
+                } else {
+                    offset = numValues > 2 ? valueOffset : (entryOffset + 8);
+                    vals = [];
+                    for (n=0;n<numValues;n++) {
+                        vals[n] = file.getUint16(offset + 2*n, !bigEnd);
+                    }
+                    return vals;
+                }
+
+            case 4: // long, 32 bit int
+                if (numValues == 1) {
+                    return file.getUint32(entryOffset + 8, !bigEnd);
+                } else {
+                    vals = [];
+                    for (n=0;n<numValues;n++) {
+                        vals[n] = file.getUint32(valueOffset + 4*n, !bigEnd);
+                    }
+                    return vals;
+                }
+
+            case 5:    // rational = two long values, first is numerator, second is denominator
+                if (numValues == 1) {
+                    numerator = file.getUint32(valueOffset, !bigEnd);
+                    denominator = file.getUint32(valueOffset+4, !bigEnd);
+                    val = new Number(numerator / denominator);
+                    val.numerator = numerator;
+                    val.denominator = denominator;
+                    return val;
+                } else {
+                    vals = [];
+                    for (n=0;n<numValues;n++) {
+                        numerator = file.getUint32(valueOffset + 8*n, !bigEnd);
+                        denominator = file.getUint32(valueOffset+4 + 8*n, !bigEnd);
+                        vals[n] = new Number(numerator / denominator);
+                        vals[n].numerator = numerator;
+                        vals[n].denominator = denominator;
+                    }
+                    return vals;
+                }
+
+            case 9: // slong, 32 bit signed int
+                if (numValues == 1) {
+                    return file.getInt32(entryOffset + 8, !bigEnd);
+                } else {
+                    vals = [];
+                    for (n=0;n<numValues;n++) {
+                        vals[n] = file.getInt32(valueOffset + 4*n, !bigEnd);
+                    }
+                    return vals;
+                }
+
+            case 10: // signed rational, two slongs, first is numerator, second is denominator
+                if (numValues == 1) {
+                    return file.getInt32(valueOffset, !bigEnd) / file.getInt32(valueOffset+4, !bigEnd);
+                } else {
+                    vals = [];
+                    for (n=0;n<numValues;n++) {
+                        vals[n] = file.getInt32(valueOffset + 8*n, !bigEnd) / file.getInt32(valueOffset+4 + 8*n, !bigEnd);
+                    }
+                    return vals;
+                }
+        }
+    }
+
+    /**
+    * Given an IFD (Image File Directory) start offset
+    * returns an offset to next IFD or 0 if it's the last IFD.
+    */
+    function getNextIFDOffset(dataView, dirStart, bigEnd){
+        //the first 2bytes means the number of directory entries contains in this IFD
+        var entries = dataView.getUint16(dirStart, !bigEnd);
+
+        // After last directory entry, there is a 4bytes of data,
+        // it means an offset to next IFD.
+        // If its value is '0x00000000', it means this is the last IFD and there is no linked IFD.
+
+        return dataView.getUint32(dirStart + 2 + entries * 12, !bigEnd); // each entry is 12 bytes long
+    }
+
+    function readThumbnailImage(dataView, tiffStart, firstIFDOffset, bigEnd){
+        // get the IFD1 offset
+        var IFD1OffsetPointer = getNextIFDOffset(dataView, tiffStart+firstIFDOffset, bigEnd);
+
+        if (!IFD1OffsetPointer) {
+            // console.log('******** IFD1Offset is empty, image thumb not found ********');
+            return {};
+        }
+        else if (IFD1OffsetPointer > dataView.byteLength) { // this should not happen
+            // console.log('******** IFD1Offset is outside the bounds of the DataView ********');
+            return {};
+        }
+        // console.log('*******  thumbnail IFD offset (IFD1) is: %s', IFD1OffsetPointer);
+
+        var thumbTags = readTags(dataView, tiffStart, tiffStart + IFD1OffsetPointer, IFD1Tags, bigEnd)
+
+        // EXIF 2.3 specification for JPEG format thumbnail
+
+        // If the value of Compression(0x0103) Tag in IFD1 is '6', thumbnail image format is JPEG.
+        // Most of Exif image uses JPEG format for thumbnail. In that case, you can get offset of thumbnail
+        // by JpegIFOffset(0x0201) Tag in IFD1, size of thumbnail by JpegIFByteCount(0x0202) Tag.
+        // Data format is ordinary JPEG format, starts from 0xFFD8 and ends by 0xFFD9. It seems that
+        // JPEG format and 160x120pixels of size are recommended thumbnail format for Exif2.1 or later.
+
+        if (thumbTags['Compression']) {
+            // console.log('Thumbnail image found!');
+
+            switch (thumbTags['Compression']) {
+                case 6:
+                    // console.log('Thumbnail image format is JPEG');
+                    if (thumbTags.JpegIFOffset && thumbTags.JpegIFByteCount) {
+                    // extract the thumbnail
+                        var tOffset = tiffStart + thumbTags.JpegIFOffset;
+                        var tLength = thumbTags.JpegIFByteCount;
+                        thumbTags['blob'] = new Blob([new Uint8Array(dataView.buffer, tOffset, tLength)], {
+                            type: 'image/jpeg'
+                        });
+                    }
+                break;
+
+            case 1:
+                console.log("Thumbnail image format is TIFF, which is not implemented.");
+                break;
+            default:
+                console.log("Unknown thumbnail image format '%s'", thumbTags['Compression']);
+            }
+        }
+        else if (thumbTags['PhotometricInterpretation'] == 2) {
+            console.log("Thumbnail image format is RGB, which is not implemented.");
+        }
+        return thumbTags;
+    }
+
+    function getStringFromDB(buffer, start, length) {
+        var outstr = "";
+        for (n = start; n < start+length; n++) {
+            outstr += String.fromCharCode(buffer.getUint8(n));
+        }
+        return outstr;
+    }
+
+    function readEXIFData(file, start) {
+        if (getStringFromDB(file, start, 4) != "Exif") {
+            if (debug) console.log("Not valid EXIF data! " + getStringFromDB(file, start, 4));
+            return false;
+        }
+
+        var bigEnd,
+            tags, tag,
+            exifData, gpsData,
+            tiffOffset = start + 6;
+
+        // test for TIFF validity and endianness
+        if (file.getUint16(tiffOffset) == 0x4949) {
+            bigEnd = false;
+        } else if (file.getUint16(tiffOffset) == 0x4D4D) {
+            bigEnd = true;
+        } else {
+            if (debug) console.log("Not valid TIFF data! (no 0x4949 or 0x4D4D)");
+            return false;
+        }
+
+        if (file.getUint16(tiffOffset+2, !bigEnd) != 0x002A) {
+            if (debug) console.log("Not valid TIFF data! (no 0x002A)");
+            return false;
+        }
+
+        var firstIFDOffset = file.getUint32(tiffOffset+4, !bigEnd);
+
+        if (firstIFDOffset < 0x00000008) {
+            if (debug) console.log("Not valid TIFF data! (First offset less than 8)", file.getUint32(tiffOffset+4, !bigEnd));
+            return false;
+        }
+
+        tags = readTags(file, tiffOffset, tiffOffset + firstIFDOffset, TiffTags, bigEnd);
+
+        if (tags.ExifIFDPointer) {
+            exifData = readTags(file, tiffOffset, tiffOffset + tags.ExifIFDPointer, ExifTags, bigEnd);
+            for (tag in exifData) {
+                switch (tag) {
+                    case "LightSource" :
+                    case "Flash" :
+                    case "MeteringMode" :
+                    case "ExposureProgram" :
+                    case "SensingMethod" :
+                    case "SceneCaptureType" :
+                    case "SceneType" :
+                    case "CustomRendered" :
+                    case "WhiteBalance" :
+                    case "GainControl" :
+                    case "Contrast" :
+                    case "Saturation" :
+                    case "Sharpness" :
+                    case "SubjectDistanceRange" :
+                    case "FileSource" :
+                        exifData[tag] = StringValues[tag][exifData[tag]];
+                        break;
+
+                    case "ExifVersion" :
+                    case "FlashpixVersion" :
+                        exifData[tag] = String.fromCharCode(exifData[tag][0], exifData[tag][1], exifData[tag][2], exifData[tag][3]);
+                        break;
+
+                    case "ComponentsConfiguration" :
+                        exifData[tag] =
+                            StringValues.Components[exifData[tag][0]] +
+                            StringValues.Components[exifData[tag][1]] +
+                            StringValues.Components[exifData[tag][2]] +
+                            StringValues.Components[exifData[tag][3]];
+                        break;
+                }
+                tags[tag] = exifData[tag];
+            }
+        }
+
+        if (tags.GPSInfoIFDPointer) {
+            gpsData = readTags(file, tiffOffset, tiffOffset + tags.GPSInfoIFDPointer, GPSTags, bigEnd);
+            for (tag in gpsData) {
+                switch (tag) {
+                    case "GPSVersionID" :
+                        gpsData[tag] = gpsData[tag][0] +
+                            "." + gpsData[tag][1] +
+                            "." + gpsData[tag][2] +
+                            "." + gpsData[tag][3];
+                        break;
+                }
+                tags[tag] = gpsData[tag];
+            }
+        }
+
+        // extract thumbnail
+        tags['thumbnail'] = readThumbnailImage(file, tiffOffset, firstIFDOffset, bigEnd);
+
+        return tags;
+    }
+
+   function findXMPinJPEG(file) {
+
+        if (!('DOMParser' in self)) {
+            // console.warn('XML parsing not supported without DOMParser');
+            return;
+        }
+        var dataView = new DataView(file);
+
+        if (debug) console.log("Got file of length " + file.byteLength);
+        if ((dataView.getUint8(0) != 0xFF) || (dataView.getUint8(1) != 0xD8)) {
+           if (debug) console.log("Not a valid JPEG");
+           return false; // not a valid jpeg
+        }
+
+        var offset = 2,
+            length = file.byteLength,
+            dom = new DOMParser();
+
+        while (offset < (length-4)) {
+            if (getStringFromDB(dataView, offset, 4) == "http") {
+                var startOffset = offset - 1;
+                var sectionLength = dataView.getUint16(offset - 2) - 1;
+                var xmpString = getStringFromDB(dataView, startOffset, sectionLength)
+                var xmpEndIndex = xmpString.indexOf('xmpmeta>') + 8;
+                xmpString = xmpString.substring( xmpString.indexOf( '<x:xmpmeta' ), xmpEndIndex );
+
+                var indexOfXmp = xmpString.indexOf('x:xmpmeta') + 10
+                //Many custom written programs embed xmp/xml without any namespace. Following are some of them.
+                //Without these namespaces, XML is thought to be invalid by parsers
+                xmpString = xmpString.slice(0, indexOfXmp)
+                            + 'xmlns:Iptc4xmpCore="http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/" '
+                            + 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '
+                            + 'xmlns:tiff="http://ns.adobe.com/tiff/1.0/" '
+                            + 'xmlns:plus="http://schemas.android.com/apk/lib/com.google.android.gms.plus" '
+                            + 'xmlns:ext="http://www.gettyimages.com/xsltExtension/1.0" '
+                            + 'xmlns:exif="http://ns.adobe.com/exif/1.0/" '
+                            + 'xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#" '
+                            + 'xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" '
+                            + 'xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/" '
+                            + 'xmlns:xapGImg="http://ns.adobe.com/xap/1.0/g/img/" '
+                            + 'xmlns:Iptc4xmpExt="http://iptc.org/std/Iptc4xmpExt/2008-02-29/" '
+                            + xmpString.slice(indexOfXmp)
+
+                var domDocument = dom.parseFromString( xmpString, 'text/xml' );
+                return xml2Object(domDocument);
+            } else{
+             offset++;
+            }
+        }
+    }
+
+    function xml2json(xml) {
+        var json = {};
+      
+        if (xml.nodeType == 1) { // element node
+          if (xml.attributes.length > 0) {
+            json['@attributes'] = {};
+            for (var j = 0; j < xml.attributes.length; j++) {
+              var attribute = xml.attributes.item(j);
+              json['@attributes'][attribute.nodeName] = attribute.nodeValue;
+            }
+          }
+        } else if (xml.nodeType == 3) { // text node
+          return xml.nodeValue;
+        }
+      
+        // deal with children
+        if (xml.hasChildNodes()) {
+          for(var i = 0; i < xml.childNodes.length; i++) {
+            var child = xml.childNodes.item(i);
+            var nodeName = child.nodeName;
+            if (json[nodeName] == null) {
+              json[nodeName] = xml2json(child);
+            } else {
+              if (json[nodeName].push == null) {
+                var old = json[nodeName];
+                json[nodeName] = [];
+                json[nodeName].push(old);
+              }
+              json[nodeName].push(xml2json(child));
+            }
+          }
+        }
+        
+        return json;
+    }
+
+    function xml2Object(xml) {
+        try {
+            var obj = {};
+            if (xml.children.length > 0) {
+              for (var i = 0; i < xml.children.length; i++) {
+                var item = xml.children.item(i);
+                var attributes = item.attributes;
+                for(var idx in attributes) {
+                    var itemAtt = attributes[idx];
+                    var dataKey = itemAtt.nodeName;
+                    var dataValue = itemAtt.nodeValue;
+
+                    if(dataKey !== undefined) {
+                        obj[dataKey] = dataValue;
+                    }
+                }
+                var nodeName = item.nodeName;
+
+                if (typeof (obj[nodeName]) == "undefined") {
+                  obj[nodeName] = xml2json(item);
+                } else {
+                  if (typeof (obj[nodeName].push) == "undefined") {
+                    var old = obj[nodeName];
+
+                    obj[nodeName] = [];
+                    obj[nodeName].push(old);
+                  }
+                  obj[nodeName].push(xml2json(item));
+                }
+              }
+            } else {
+              obj = xml.textContent;
+            }
+            return obj;
+          } catch (e) {
+              console.log(e.message);
+          }
+    }
+
+    EXIF.enableXmp = function() {
+        EXIF.isXmpEnabled = true;
+    }
+
+    EXIF.disableXmp = function() {
+        EXIF.isXmpEnabled = false;
+    }
+
+    EXIF.getData = function(img, callback) {
+        if (((self.Image && img instanceof self.Image)
+            || (self.HTMLImageElement && img instanceof self.HTMLImageElement))
+            && !img.complete)
+            return false;
+
+        if (!imageHasData(img)) {
+            getImageData(img, callback);
+        } else {
+            if (callback) {
+                callback.call(img);
+            }
+        }
+        return true;
+    }
+
+    EXIF.getTag = function(img, tag) {
+        if (!imageHasData(img)) return;
+        return img.exifdata[tag];
+    }
+    
+    EXIF.getIptcTag = function(img, tag) {
+        if (!imageHasData(img)) return;
+        return img.iptcdata[tag];
+    }
+
+    EXIF.getAllTags = function(img) {
+        if (!imageHasData(img)) return {};
+        var a,
+            data = img.exifdata,
+            tags = {};
+        for (a in data) {
+            if (data.hasOwnProperty(a)) {
+                tags[a] = data[a];
+            }
+        }
+        return tags;
+    }
+    
+    EXIF.getAllIptcTags = function(img) {
+        if (!imageHasData(img)) return {};
+        var a,
+            data = img.iptcdata,
+            tags = {};
+        for (a in data) {
+            if (data.hasOwnProperty(a)) {
+                tags[a] = data[a];
+            }
+        }
+        return tags;
+    }
+
+    EXIF.pretty = function(img) {
+        if (!imageHasData(img)) return "";
+        var a,
+            data = img.exifdata,
+            strPretty = "";
+        for (a in data) {
+            if (data.hasOwnProperty(a)) {
+                if (typeof data[a] == "object") {
+                    if (data[a] instanceof Number) {
+                        strPretty += a + " : " + data[a] + " [" + data[a].numerator + "/" + data[a].denominator + "]\r\n";
+                    } else {
+                        strPretty += a + " : [" + data[a].length + " values]\r\n";
+                    }
+                } else {
+                    strPretty += a + " : " + data[a] + "\r\n";
+                }
+            }
+        }
+        return strPretty;
+    }
+
+    EXIF.readFromBinaryFile = function(file) {
+        return findEXIFinJPEG(file);
+    }
+
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+            return EXIF;
+        }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    }
+}.call(this));
+
+
+
+/***/ }),
+
+/***/ "uGxA":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = getImgMsg;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__("//Fk");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_exif_js__ = __webpack_require__("sbrb");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_exif_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_exif_js__);
+
+
+var headerImage = void 0;
+
+function getImgMsg(file) {
+    return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve) {
+        var Orientation = void 0;
+        //获取拍照时的信息，解决拍出来的照片旋转问题
+        //需要在getData执行完成后的回调函数中获取Orientation
+        var getOrientation = new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (res) {
+            __WEBPACK_IMPORTED_MODULE_1_exif_js___default.a.getData(file, function () {
+                Orientation = __WEBPACK_IMPORTED_MODULE_1_exif_js___default.a.getTag(this, 'Orientation');
+                console.log('Orientation=', Orientation);
+                res(Orientation);
+            });
+        });
+        //在获取照片信息成功后，调用imageLoad，对照片进行操作
+        getOrientation.then(function (res) {
+            imageLoad(file, res).then(function (headerImage) {
+                resolve(headerImage);
+            });
+        });
+    });
+}
+
+function imageLoad(file, Orientation) {
+    // 看支持不支持FileReader
+    if (!file || !window.FileReader) return;
+
+    if (/^image/.test(file.type)) {
+        // 创建一个reader
+        var reader = new FileReader();
+        // 将图片2将转成 base64 格式
+        reader.readAsDataURL(file);
+        // 读取成功后的回调
+        return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (res, rec) {
+            reader.onloadend = function () {
+                var result = this.result;
+                var img = new Image();
+                img.src = result;
+                img.onload = function () {
+                    var data = compress(img, Orientation);
+                    headerImage = data;
+                    res(headerImage);
+                };
+            };
+        });
+    }
+}
+
+//旋转图片
+function compress(img, Orientation) {
+    var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext('2d');
+    //瓦片canvas
+    var tCanvas = document.createElement("canvas");
+    var tctx = tCanvas.getContext("2d");
+    var initSize = img.src.length;
+    var width = img.width;
+    var height = img.height;
+    //如果图片大于四百万像素，计算压缩比并将大小压至400万以下
+    var ratio = void 0;
+    console.log(width * height);
+    if ((ratio = width * height / 6000000) > 1) {
+        console.log("大于600万像素");
+        ratio = Math.sqrt(ratio);
+        width /= ratio;
+        height /= ratio;
+    } else {
+        ratio = 1;
+    }
+    canvas.width = width;
+    canvas.height = height;
+    //        铺底色
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    //如果图片像素大于100万则使用瓦片绘制
+    var count = void 0;
+    if ((count = width * height / 2000000) > 1) {
+        console.log("超过200W像素");
+        count = ~~(Math.sqrt(count) + 1); //计算要分成多少块瓦片
+        //            计算每块瓦片的宽和高
+        var nw = ~~(width / count);
+        var nh = ~~(height / count);
+        tCanvas.width = nw;
+        tCanvas.height = nh;
+        for (var i = 0; i < count; i++) {
+            for (var j = 0; j < count; j++) {
+                tctx.drawImage(img, i * nw * ratio, j * nh * ratio, nw * ratio, nh * ratio, 0, 0, nw, nh);
+                ctx.drawImage(tCanvas, i * nw, j * nh, nw, nh);
+            }
+        }
+    } else {
+        console.log(width * height);
+        ctx.drawImage(img, 0, 0, width, height);
+    }
+    //修复ios上传图片的时候 被旋转的问题
+    if (Orientation != "" && Orientation != 1) {
+        switch (Orientation) {
+            case 6:
+                //需要顺时针（向左）90度旋转
+                // rotateImg(img, 'left', canvas);
+                break;
+            case 8:
+                //需要逆时针（向右）90度旋转
+                rotateImg(img, 'right', canvas);
+                break;
+            case 3:
+                //需要180度旋转
+                rotateImg(img, 'right', canvas); //转两次
+                rotateImg(img, 'right', canvas);
+                break;
+        }
+    }
+    //进行最小压缩
+    var ndata = canvas.toDataURL('image/jpeg', 0.5);
+    tCanvas.width = tCanvas.height = canvas.width = canvas.height = 0;
+    return ndata;
+}
+function rotateImg(img, direction, canvas) {
+    //最小与最大旋转方向，图片旋转4次后回到原方向
+    var min_step = 0;
+    var max_step = 3;
+    if (img == null) return;
+    //img的高度和宽度不能在img元素隐藏后获取，否则会出错
+    var height = img.height;
+    var width = img.width;
+    var step = 2;
+    if (step == null) {
+        step = min_step;
+    }
+    if (direction == 'right') {
+        step++;
+        //旋转到原位置，即超过最大值
+        step > max_step && (step = min_step);
+    } else {
+        step--;
+        step < min_step && (step = max_step);
+    }
+    //旋转角度以弧度值为参数
+    var degree = step * 90 * Math.PI / 180;
+    var ctx = canvas.getContext('2d');
+    switch (step) {
+        case 0:
+            canvas.width = width;
+            canvas.height = height;
+            ctx.drawImage(img, 0, 0);
+            break;
+        case 1:
+            canvas.width = height;
+            canvas.height = width;
+            ctx.rotate(degree);
+            ctx.drawImage(img, 0, -height);
+            break;
+        case 2:
+            canvas.width = width;
+            canvas.height = height;
+            ctx.rotate(degree);
+            ctx.drawImage(img, -width, -height);
+            break;
+        case 3:
+            canvas.width = height;
+            canvas.height = width;
+            ctx.rotate(degree);
+            ctx.drawImage(img, -width, 0);
+            break;
+    }
+}
+
+/***/ })
+
+});

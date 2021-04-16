@@ -1,0 +1,408 @@
+webpackJsonp([17],{
+
+/***/ "1w9a":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+// EXTERNAL MODULE: ./src/lib/utils.js
+var utils = __webpack_require__("n95b");
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/projectManagement/reviewManagement.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ var reviewManagement = ({
+  name: "reviewManagement",
+  data: function data() {
+    return {
+      level: "",
+      corId: "",
+      tableData: [], //表格数据
+      loading: true, //loading 显示
+      currentRow: null, //当前高亮行
+
+      configTan: false, //配置弹窗
+      radio: "0", //审批方式选择
+      reviewCycle: "", //审批周期
+
+      daiNum: "", //待审批数
+      yiNum: "", //已审批数
+      allNum: "", //全部审批数
+
+      currentPage: 1, //当前页数
+      totalSize: 0, //总计表格条数
+      pageSize: 10 //默认十条
+    };
+  },
+
+  methods: {
+    //查询所有数据
+    getData: function getData() {
+      var _this = this;
+
+      this.$request.getReviews({
+        currentPage: this.currentPage,
+        pageSize: this.pageSize
+      }).then(function (response) {
+        _this.loading = false;
+        var res = response.data;
+        if (res.code == "1000") {
+          _this.tableData = res.data.list;
+          _this.totalSize = res.data.total;
+          _this.currentPage = res.data.pageNum;
+          _this.tableData.forEach(function (item) {
+            switch (item.status) {
+              case 0:
+                item.status = "未处理";
+                break;
+              case 1:
+                item.status = "已通过";
+                break;
+              case 2:
+                item.status = "已拒绝";
+                break;
+              case 3:
+                item.status = "超时默认通过";
+                break;
+              case 4:
+                item.status = "超时默认拒绝";
+                break;
+              case 5:
+                item.status = "未开始";
+                break;
+            }
+          });
+          if (_this.$route.params.data) {
+            _this.setCurrent();
+          }
+        } else {
+          _this.$message({
+            type: "error",
+            message: res.msg,
+            duration: 1000
+          });
+        }
+      }).catch(function (err) {
+        _this.loading = false;
+        console.log(err);
+        _this.$message({
+          type: "error",
+          message: "请求超时，请稍后重试!",
+          duration: 1000
+        });
+      });
+    },
+
+    //每页的查询
+    handleSizeChange: function handleSizeChange(val) {
+      this.loading = true; //表格加载动画
+      this.pageSize = parseInt("" + val);
+      this.getData();
+    },
+
+    //调转的每页查询
+    directHandleCurrentChange: function directHandleCurrentChange(val) {
+      this.loading = true; //表格加载动画
+      this.currentPage = parseInt("" + val);
+      this.getData();
+    },
+
+
+    //审批配置
+    config: function config() {
+      var _this2 = this;
+
+      this.$request.getReviewConfig({
+        corpId: this.corId
+      }).then(function (response) {
+        var res = response.data;
+        if (res.code == "1000") {
+          _this2.configTan = true;
+          if (!res.data.enableApply) {
+            //无需审批
+            _this2.radio = "0";
+            _this2.reviewCycle = "";
+          } else {
+            _this2.radio = "" + res.data.applyFlowType;
+            _this2.reviewCycle = res.data.applyExpiry;
+          }
+        }
+      });
+    },
+    configYes: function configYes() {
+      var _this3 = this;
+
+      var param = {};
+      if (this.radio == "0") {
+        param = {
+          corpId: this.corId,
+          enableApply: false
+        };
+      } else {
+        if (this.reviewCycle == "") {
+          this.$message({
+            type: "warning",
+            message: "审批周期不能为空!",
+            duration: 1000
+          });
+          return;
+        }
+        param = {
+          corpId: this.corId,
+          enableApply: true,
+          applyFlowType: parseInt(this.radio),
+          applyExpiry: parseInt(this.reviewCycle)
+        };
+      }
+      this.$request.saveReviewConfig(param).then(function (response) {
+        _this3.configTan = false;
+        var res = response.data;
+        if (res.code == "1000") {
+          _this3.$message({
+            type: "success",
+            message: "配置成功!",
+            duration: 1000
+          });
+        } else {
+          _this3.$message({
+            type: "error",
+            message: res.msg,
+            duration: 1000
+          });
+        }
+      }).catch(function (err) {
+        console.log(err);
+        _this3.$message({
+          type: "error",
+          message: "请求超时，请稍后重试!",
+          duration: 1000
+        });
+      });
+    },
+    checkCycle: function checkCycle() {
+      if (!/(^[1-9]\d*$)/.test(this.reviewCycle)) {
+        this.$message({
+          type: "warning",
+          message: "请输入正整数!",
+          duration: 1000
+        });
+      }
+    },
+
+
+    //打开审批/查看详情页面
+    detail: function detail(index, row) {
+      console.log(row);
+      this.$router.push({
+        name: "reviewDetail",
+        params: { data: row }
+      });
+    },
+
+
+    //表格某行置为高亮
+    setCurrent: function setCurrent() {
+      var index = void 0;
+      for (var i = 0; i < this.tableData.length; i++) {
+        if (this.tableData[i].id == this.$route.params.data.id) {
+          index = i;
+        }
+      }
+      console.log(index);
+      this.$refs.singleTable.setCurrentRow(this.tableData[index]);
+    },
+    handleCurrentChange: function handleCurrentChange(val) {
+      this.currentRow = val;
+    }
+  },
+
+  //页面进入之前进行渲染
+  created: function created() {
+    var _this4 = this;
+
+    console.log("消息详情：", this.$route.params.data);
+    var rootAdminInfo = JSON.parse(Object(utils["a" /* Decrypt */])(window.sessionStorage.getItem("rootAdminInfo")));
+    this.level = rootAdminInfo.level;
+    this.corId = rootAdminInfo.corId;
+    this.getData();
+    //计数
+    this.$request.flowCount().then(function (response) {
+      var res = response.data;
+      if (res.code == "1000") {
+        _this4.daiNum = res.data.unApplyCount;
+        _this4.yiNum = res.data.doneApplyCount;
+        _this4.allNum = res.data.allApplyCount;
+      } else {
+        _this4.$message({
+          type: "error",
+          message: res.msg,
+          duration: 1000
+        });
+      }
+    }).catch(function (err) {
+      console.log(err);
+      _this4.$message({
+        type: "error",
+        message: "请求计数失败，请稍后重试!",
+        duration: 1000
+      });
+    });
+  }
+});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-9df94a08","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/projectManagement/reviewManagement.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dataDictionary"},[_vm._m(0),_vm._v(" "),(_vm.level==1)?_c('div',{staticClass:"add"},[_c('button',{staticClass:"el-button el-button--success el-button--small",attrs:{"type":"button"},on:{"click":function($event){return _vm.config()}}},[_c('i',{staticClass:"el-icon-setting"}),_vm._v(" "),_c('span',[_vm._v("审批配置")])])]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"dataDictionaryForm"},[_c('el-row',{attrs:{"gutter":20}},[_c('el-col',{attrs:{"span":8}},[_c('div',{staticClass:"header-card dai"},[_c('div',{staticClass:"circle dai"},[_c('i',{staticClass:"el-icon-copy-document"})]),_vm._v(" "),_c('p',[_vm._v("待处理审批："+_vm._s(_vm.daiNum))])])]),_vm._v(" "),_c('el-col',{attrs:{"span":8}},[_c('div',{staticClass:"header-card yi"},[_c('div',{staticClass:"circle yi"},[_c('i',{staticClass:"el-icon-check"})]),_vm._v(" "),_c('p',[_vm._v("已处理审批："+_vm._s(_vm.yiNum))])])]),_vm._v(" "),_c('el-col',{attrs:{"span":8}},[_c('div',{staticClass:"header-card all"},[_c('div',{staticClass:"circle all"},[_c('i',{staticClass:"el-icon-folder-opened"})]),_vm._v(" "),_c('p',[_vm._v("全部审批："+_vm._s(_vm.allNum))])])])],1),_vm._v(" "),_c('el-row',[_c('el-table',{directives:[{name:"loading",rawName:"v-loading",value:(_vm.loading),expression:"loading"}],ref:"singleTable",staticStyle:{"width":"100%"},attrs:{"data":_vm.tableData,"border":"","element-loading-text":"正在加载","element-loading-spinner":"el-icon-loading","element-loading-background":"rgba(0, 0, 0, 0.8)","highlight-current-row":""},on:{"current-change":_vm.handleCurrentChange}},[_c('el-table-column',{attrs:{"prop":"anchang","label":"案场"},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.anchangName || '暂无数据'))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"applicant","label":"发起人"},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.initiatorName || '暂无数据'))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"createTime","label":"发起时间","show-overflow-tooltip":""},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(_vm.common.getTime(row.createTime) || '暂无数据'))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"content","label":"审批类型"},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.typeDesc || '暂无数据'))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"status","label":"当前状态","show-overflow-tooltip":""},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+var row = ref.row;
+return [_vm._v(_vm._s(row.status || '暂无数据'))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"operation","label":"操作"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_c('el-button',{attrs:{"size":"mini"},on:{"click":function($event){return _vm.detail(scope.$index, scope.row)}}},[_vm._v(_vm._s(scope.row.status=='未处理'||scope.row.status=='未开始'?'审批':'查看详情'))])]}}])})],1)],1),_vm._v(" "),_c('div',{staticClass:"dataDictionary-page"},[_c('el-pagination',{attrs:{"current-page":_vm.currentPage,"page-sizes":[5,10,15,20],"page-size":_vm.pageSize,"total":_vm.totalSize,"layout":"total, sizes, prev, pager, next, jumper"},on:{"size-change":_vm.handleSizeChange,"current-change":_vm.directHandleCurrentChange}})],1)],1),_vm._v(" "),_c('el-dialog',{attrs:{"title":"集团审批配置","visible":_vm.configTan,"width":"50%","close-on-click-modal":false},on:{"update:visible":function($event){_vm.configTan=$event}}},[_c('el-row',{staticStyle:{"padding":"20px"}},[_vm._v("\n      审批层级：\n      "),_c('el-radio',{attrs:{"label":"0"},model:{value:(_vm.radio),callback:function ($$v) {_vm.radio=$$v},expression:"radio"}},[_vm._v("无需审批")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"1"},model:{value:(_vm.radio),callback:function ($$v) {_vm.radio=$$v},expression:"radio"}},[_vm._v("一级")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"},model:{value:(_vm.radio),callback:function ($$v) {_vm.radio=$$v},expression:"radio"}},[_vm._v("二级")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"3"},model:{value:(_vm.radio),callback:function ($$v) {_vm.radio=$$v},expression:"radio"}},[_vm._v("三级")]),_vm._v(" "),_c('p',{directives:[{name:"show",rawName:"v-show",value:(_vm.radio!=='0'),expression:"radio!=='0'"}],staticStyle:{"padding-left":"12%"}},[_c('i',{staticClass:"el-icon-warning-outline"}),_vm._v("需城市管理员\n        "),_c('span',{directives:[{name:"show",rawName:"v-show",value:(_vm.radio == '2'||_vm.radio == '3'),expression:"radio == '2'||radio == '3'"}]},[_vm._v("、大区管理员")]),_vm._v(" "),_c('span',{directives:[{name:"show",rawName:"v-show",value:(_vm.radio == '3'),expression:"radio == '3'"}]},[_vm._v("、集团管理员")]),_vm._v("审批")])],1),_vm._v(" "),_c('el-row',{directives:[{name:"show",rawName:"v-show",value:(_vm.radio!=0),expression:"radio!=0"}],staticStyle:{"padding":"0 20px"}},[_vm._v("\n      审批周期：\n      "),_c('el-input',{staticStyle:{"width":"30%"},attrs:{"placeholder":"请输入正整数"},on:{"input":function($event){return _vm.checkCycle()}},model:{value:(_vm.reviewCycle),callback:function ($$v) {_vm.reviewCycle=$$v},expression:"reviewCycle"}},[_c('template',{slot:"append"},[_vm._v("天")])],2)],1),_vm._v(" "),_c('div',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{on:{"click":function($event){_vm.configTan=false}}},[_vm._v("取 消")]),_vm._v(" "),_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){return _vm.configYes()}}},[_vm._v("确 定")])],1)],1)],1)}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dataDictionary-title el-row"},[_c('span',{staticClass:"dataDictionary-title_liner"}),_vm._v(" "),_c('span',{staticClass:"dataDictionary-title_text"},[_vm._v("审批管理")])])}]
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ var projectManagement_reviewManagement = (esExports);
+// CONCATENATED MODULE: ./src/components/projectManagement/reviewManagement.vue
+function injectStyle (ssrContext) {
+  __webpack_require__("J643")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-9df94a08"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  reviewManagement,
+  projectManagement_reviewManagement,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ var components_projectManagement_reviewManagement = __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "J643":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ })
+
+});
