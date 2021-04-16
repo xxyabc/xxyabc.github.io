@@ -20,7 +20,6 @@ $(window).load(function () {
         $('#stuck_container').TMStickUp({
         })
     }
-    console.log(123123)
 });
 
 /* Easing library
@@ -197,3 +196,8 @@ $(document).ready(function () {
 
 
 });
+
+
+$(function () {
+    console.log(1312312312)
+})
