@@ -5,6 +5,7 @@
 /*========================================================
                     Main layout styles
 =========================================================*/
+* { touch-action: pan-y; }
 body {
   background: #129894;
   color: #363535;
@@ -136,6 +137,7 @@ img {
 }
 .brand {
   text-align: center;
+  margin-top: 1.5%;
 }
 .brand h1 {
   display: inline-block;
@@ -641,7 +643,7 @@ img {
   margin-top: 25px;
 }
 .box_6 + .box_6 {
-  margin-top: 118px;
+  margin-top: 30px;
 }
 @media (max-width: 1199px) {
   .box_6 .put-left {
@@ -656,10 +658,14 @@ img {
   }
 }
 .box_7 {
-  padding-bottom: 117px;
+  padding-bottom: 87px;
 }
 .box_7 .img-wrap {
   text-align: center;
+}
+.box_7 .img-wrap img {
+  width: 100% !important;
+  height: 200px;
 }
 .box_7 .caption {
   padding-top: 35px;
@@ -888,3 +894,98 @@ a[data-type='lightbox']:hover img {
   }
 }
 /*Core variables and mixins*/
+
+.conference{
+  font-style: italic;
+}
+.confButtons{
+  display: inline;
+}
+.confButtons button{
+  cursor: pointer;
+  margin: 0 3px;
+}
+.tabHeader{
+  font: 600 24px/30px 'Open Sans', sans-serif;
+  margin-bottom: 20px;
+  border-bottom: #363535 solid 2px;
+}
+.tabHeader span{
+  cursor: pointer;
+}
+.tabHeader span:hover{
+  color: #01918c
+}
+.keyHeader{
+  font: 600 25px/30px 'Open Sans', sans-serif;
+  margin: 20px;
+}
+.tanchuang {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 9999;
+}
+.tanchuang .dialog{
+  position: absolute;
+  top: 100px;
+  width: 500px;
+  left: calc(50% - 200px);
+  background-color: white;
+  border-radius: 5px;
+}
+.tanchuang .dialog h3 {
+  font-size: 25px;
+  font-weight: bold;
+  padding: 15px 0 0 15px;
+}
+.tanchuang .dialog .close{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+#citeContent{
+  width: calc(100% - 60px);
+  overflow-y: scroll;
+  margin: 20px 30px 40px 30px;
+}
+
+.teamHeader{
+  font: 600 24px/30px 'Open Sans', sans-serif;
+  margin-bottom: 20px;
+  border-bottom: #363535 solid 2px;
+  color:#363535
+}
+.teamItem{
+  text-align: center;
+}
+.teamItem img{
+  width:70%;
+  cursor: pointer;
+}
+.teamItem p{
+  cursor: pointer;
+}
+
+.baseInformation img{
+  border-radius: 50%;
+  width: 50%;
+  margin-bottom: 25px;
+}
+.baseInformation p{
+  word-break: break-all;
+  display: flex;
+  align-items: center;
+  font-size: 16px
+}
+.baseInformation p svg{
+  margin-right: 10px;
+}
+.teamContent{
+  padding:0 0 30px 30px;
+}

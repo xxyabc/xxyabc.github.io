@@ -47,7 +47,7 @@
 				
 		minHeight			: '0',	//you can also leave it blank
 		
-		navigation			: true,	//true or false, to display or not the navigation buttons
+		navigation			: false,	//true or false, to display or not the navigation buttons
 		
 		navigationHover		: true,	//if true the navigation button (prev, next and play/stop buttons) will be visible on hover state only, if false they will be visible always
 		
@@ -160,11 +160,11 @@
 	}
 		
 	if(opts.navigation==true){
-		fakeHover.append(
-			'<div class="camera_prev"><span></span></div>'
-			).append(
-			'<div class="camera_next"><span></span></div>'
-			);
+		// fakeHover.append(
+		// 	'<div class="camera_prev"><span></span></div>'
+		// 	).append(
+		// 	'<div class="camera_next"><span></span></div>'
+		// 	);
 	}
 		
 	if(opts.thumbnails==true){

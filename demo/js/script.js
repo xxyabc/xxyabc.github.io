@@ -71,7 +71,7 @@ $(document).ready(function () {
 /* Orientation tablet fix
  ========================================================*/
 $(function () {
-// IPad/IPhone
+    // IPad/IPhone
     var viewportmeta = document.querySelector && document.querySelector('meta[name="viewport"]'),
         ua = navigator.userAgent,
 
@@ -124,7 +124,7 @@ $(document).ready(function () {
     var owl2 = $('#owl_2');
     var isotope = $('.isotope');
 
-    if(camera.length > 0){
+    if (camera.length > 0) {
         camera.camera(
             {
                 autoAdvance: false,
@@ -143,7 +143,7 @@ $(document).ready(function () {
         );
     }
 
-    if(owl.length > 0){
+    if (owl.length > 0) {
         owl.owlCarousel(
             {
                 navigation: true,
@@ -159,7 +159,7 @@ $(document).ready(function () {
         );
     }
 
-    if(owl2.length > 0){
+    if (owl2.length > 0) {
         owl2.owlCarousel(
             {
                 navigation: true,
@@ -175,20 +175,20 @@ $(document).ready(function () {
         );
     }
 
-    if(isotope.length > 0){
+    if (isotope.length > 0) {
         isotope.isotope({
             itemSelector: '.element-item',
             layoutMode: 'fitRows'
         });
 
-        $('#filters').on( 'click', 'a', function() {
-            var filterValue = $( this ).attr('data-filter');
+        $('#filters').on('click', 'a', function () {
+            var filterValue = $(this).attr('data-filter');
             console.log(filterValue);
 
-            if(filterValue == '*'){
+            if (filterValue == '*') {
                 isotope.isotope({ filter: filterValue });
-            }else{
-                isotope.isotope({ filter: '.'+filterValue });
+            } else {
+                isotope.isotope({ filter: '.' + filterValue });
             }
             return false;
         });
@@ -196,29 +196,3 @@ $(document).ready(function () {
 
 
 });
-
-
-$(function () {
-    console.log(1312312312)
-    $.ajax({
-        type: 'POST',
-        url: 'https://fk.aiseep.com/risk/h5/pzhy/getPzhyRecords',
-        data: {
-            anchangId: 61
-        },
-        success: function(data){
-            console.log(data)
-        }
-      });
-    $.ajax({
-        type: 'POST',
-        url: 'http://holdem.ia.ac.cn:9002/resourceInfo/searchByKeyWords',
-        data: {
-            pageNum: 1,
-            pageSize: 10
-        },
-        success: function(data){
-            console.log(data)
-        }
-      });
-})
